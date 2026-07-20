@@ -88,6 +88,16 @@ body {
   color: #3A3A3C;
 }
 
+.section p + p,
+.section ul + p {
+  margin-top: 10px;
+}
+
+.section .section-note {
+  font-size: 12px;
+  color: #636366;
+}
+
 .section ul {
   padding-left: 18px;
   margin-top: 6px;
