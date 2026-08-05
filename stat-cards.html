@@ -69,6 +69,39 @@ body {
   max-width: 900px;
 }
 
+.kit-linklist {
+  max-width: 900px;
+  padding: 8px 32px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.kit-link-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+  background: var(--ink-card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.kit-link-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--cream-faint);
+  flex-shrink: 0;
+}
+.kit-link-label {
+  font-size: 13px;
+  color: var(--cream-dim);
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.kit-link-row .kit-share { max-width: none; flex-shrink: 0; width: 380px; }
+
 .kit-gallery {
   display: flex;
   flex-wrap: wrap;
@@ -223,6 +256,9 @@ body {
   <p style="margin-top:16px;">Four of the <code>1200&times;630</code> cards below are wired as <code>og:image</code> for the site (see B4) and are marked <b style="color:var(--teal)">OG TARGET</b> &mdash; export those first, into <code>images/og/</code> with the exact filename shown on the card.</p>
 </div>
 
+<p class="kit-section-label">Share links &middot; copy without scrolling past the cards</p>
+<div class="kit-linklist" id="linkList"></div>
+
 <p class="kit-section-label">Instagram / social &middot; 1080&times;1350</p>
 <div class="kit-gallery" id="igGallery"></div>
 
@@ -264,8 +300,12 @@ function cardHTML(c, variant) {
   </div>`;
 }
 
+function shareURL(c) {
+  return `https://justcalldibs.com/stats/${c.shareSlug}.html`;
+}
+
 function shareHTML(c) {
-  const url = `https://justcalldibs.com/stats/${c.shareSlug}.html`;
+  const url = shareURL(c);
   return `<div class="kit-share">
     <code class="kit-share-url" tabindex="0">${url}</code>
     <button type="button" class="kit-copy-btn" data-url="${url}">Copy link</button>
@@ -283,6 +323,19 @@ function renderGallery(id, variant) {
     el.appendChild(wrap);
   });
 }
+
+function renderLinkList() {
+  const el = document.getElementById('linkList');
+  CARDS.forEach((c, i) => {
+    const row = document.createElement('div');
+    row.className = 'kit-link-row';
+    row.innerHTML = `<span class="kit-link-num">${(i+1).toString().padStart(2,'0')}</span>
+      <span class="kit-link-label">${c.label.replace(/<[^>]+>/g, '')}</span>
+      ${shareHTML(c)}`;
+    el.appendChild(row);
+  });
+}
+renderLinkList();
 renderGallery('igGallery', 'ig');
 renderGallery('ogGallery', 'og');
 
