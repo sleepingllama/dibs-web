@@ -83,6 +83,39 @@ body {
   color: var(--cream-faint);
   max-width: 320px;
 }
+.kit-share {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 320px;
+}
+.kit-share-url {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--teal);
+  background: var(--ink-card);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 6px 8px;
+  overflow-x: auto;
+  white-space: nowrap;
+  cursor: text;
+}
+.kit-copy-btn {
+  flex-shrink: 0;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--teal);
+  border: none;
+  border-radius: 6px;
+  padding: 7px 10px;
+  cursor: pointer;
+}
+.kit-copy-btn:hover { opacity: .85; }
 
 /* --- The card itself (this is what gets captured) --- */
 .stat-card {
@@ -198,16 +231,16 @@ body {
 
 <script>
 const CARDS = [
-  { type: 'pair', a: '41.1%', b: '9.6%', sep: 'vs', label: 'Employed women who think about household organization at work — 4x the rate of men.', source: 'arXiv, 2025', ogTarget: 'images/og/research-og.jpg' },
-  { type: 'pair', a: '72%', b: '18%', sep: 'vs', label: 'of women say they do most of the household tasks. Only this many partners agree.', source: 'Starling Bank / Mortar Research' },
-  { type: 'single', val: '75<span class="unit">min</span>', label: 'spent arguing about cleaning duties, every single month.', source: 'SuchScience, n=2,000', ogTarget: 'images/og/calculator-og.jpg' },
-  { type: 'single', val: 'Only <em>9%</em>', label: 'of partners consistently follow through on chores without a reminder.', source: 'SuchScience, n=2,000', ogTarget: 'images/og/index-og.jpg' },
-  { type: 'single', val: '8<em>&times;</em>', label: 'a month couples argue when one partner carries nearly everything.', source: 'Starling Bank / Mortar Research' },
-  { type: 'pair', a: '56%', b: '76%', sep: '&rarr;', label: 'Relationship satisfaction under 6 months together, vs. 10+ years. It’s learnable, not fixed.', source: 'SuchScience, n=2,000' },
-  { type: 'single', val: '708<em>M</em>', label: 'women worldwide are outside the paid workforce because of unpaid care work.', source: 'ILO' },
-  { type: 'single', val: '$10.8<em>T</em>', label: 'the estimated annual value of unpaid care work, worldwide.', source: 'UN Women, 2024' },
-  { type: 'single', val: '36%', label: 'of couples disagree on who’s actually the household’s primary organizer.', source: 'arXiv, 2025', ogTarget: 'images/og/quiz-og.jpg' },
-  { type: 'single', val: 'Top <em>5</em>', label: 'Chores are a top-5 reason couples argue — right behind money.', source: 'Lifeway Research, 2024' },
+  { type: 'pair', a: '41.1%', b: '9.6%', sep: 'vs', label: 'Employed women who think about household organization at work — 4x the rate of men.', source: 'arXiv, 2025', ogTarget: 'images/og/research-og.jpg', shareSlug: 'mental-load-at-work' },
+  { type: 'pair', a: '72%', b: '18%', sep: 'vs', label: 'of women say they do most of the household tasks. Only this many partners agree.', source: 'Starling Bank / Mortar Research', shareSlug: 'who-does-more' },
+  { type: 'single', val: '75<span class="unit">min</span>', label: 'spent arguing about cleaning duties, every single month.', source: 'SuchScience, n=2,000', ogTarget: 'images/og/calculator-og.jpg', shareSlug: 'arguing-about-cleaning' },
+  { type: 'single', val: 'Only <em>9%</em>', label: 'of partners consistently follow through on chores without a reminder.', source: 'SuchScience, n=2,000', ogTarget: 'images/og/index-og.jpg', shareSlug: 'follow-through-without-reminders' },
+  { type: 'single', val: '8<em>&times;</em>', label: 'a month couples argue when one partner carries nearly everything.', source: 'Starling Bank / Mortar Research', shareSlug: 'monthly-arguments' },
+  { type: 'pair', a: '56%', b: '76%', sep: '&rarr;', label: 'Relationship satisfaction under 6 months together, vs. 10+ years. It’s learnable, not fixed.', source: 'SuchScience, n=2,000', shareSlug: 'relationship-satisfaction' },
+  { type: 'single', val: '708<em>M</em>', label: 'women worldwide are outside the paid workforce because of unpaid care work.', source: 'ILO', shareSlug: 'women-outside-workforce' },
+  { type: 'single', val: '$10.8<em>T</em>', label: 'the estimated annual value of unpaid care work, worldwide.', source: 'UN Women, 2024', shareSlug: 'unpaid-care-value' },
+  { type: 'single', val: '36%', label: 'of couples disagree on who’s actually the household’s primary organizer.', source: 'arXiv, 2025', ogTarget: 'images/og/quiz-og.jpg', shareSlug: 'whos-the-organizer' },
+  { type: 'single', val: 'Top <em>5</em>', label: 'Chores are a top-5 reason couples argue — right behind money.', source: 'Lifeway Research, 2024', shareSlug: 'top-5-arguments' },
 ];
 
 function valHTML(c) {
@@ -231,17 +264,46 @@ function cardHTML(c, variant) {
   </div>`;
 }
 
+function shareHTML(c) {
+  const url = `https://justcalldibs.com/stats/${c.shareSlug}.html`;
+  return `<div class="kit-share">
+    <code class="kit-share-url" tabindex="0">${url}</code>
+    <button type="button" class="kit-copy-btn" data-url="${url}">Copy link</button>
+  </div>`;
+}
+
 function renderGallery(id, variant) {
   const el = document.getElementById(id);
   CARDS.forEach((c, i) => {
     const wrap = document.createElement('div');
     wrap.className = 'kit-item';
-    wrap.innerHTML = cardHTML(c, variant) + `<span class="kit-caption">${(i+1).toString().padStart(2,'0')} &mdash; ${c.source}</span>`;
+    wrap.innerHTML = cardHTML(c, variant)
+      + `<span class="kit-caption">${(i+1).toString().padStart(2,'0')} &mdash; ${c.source}</span>`
+      + shareHTML(c);
     el.appendChild(wrap);
   });
 }
 renderGallery('igGallery', 'ig');
 renderGallery('ogGallery', 'og');
+
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.kit-copy-btn');
+  if (!btn) return;
+  navigator.clipboard.writeText(btn.dataset.url).then(() => {
+    const original = btn.textContent;
+    btn.textContent = 'Copied!';
+    setTimeout(() => { btn.textContent = original; }, 1500);
+  });
+});
+document.addEventListener('click', (e) => {
+  const code = e.target.closest('.kit-share-url');
+  if (!code) return;
+  const range = document.createRange();
+  range.selectNodeContents(code);
+  const sel = window.getSelection();
+  sel.removeAllRanges();
+  sel.addRange(range);
+});
 </script>
 </body>
 </html>
