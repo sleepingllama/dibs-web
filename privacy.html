@@ -1,103 +1,612 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Learn how Dibs collects, uses, shares, retains, and deletes personal information, including data received through Facebook Login.">
-  <title>Privacy Policy — Dibs</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer data-domain="justcalldibs.com" src="https://plausible.io/js/script.outbound-links.tagged-events.js"></script>
+<title>Privacy Policy — Dibs</title>
+<meta name="description" content="What Dibs collects, why, how it's protected, and how to delete it. Plain-language summary up top, full detail below.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://justcalldibs.com/privacy.html">
+<meta property="og:title" content="Privacy Policy — Dibs">
+<meta property="og:description" content="What Dibs collects, why, how it's protected, and how to delete it.">
+<meta property="og:image" content="https://justcalldibs.com/images/og/index-og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Privacy Policy — Dibs">
+<meta name="twitter:description" content="What Dibs collects, why, how it's protected, and how to delete it.">
+<meta name="twitter:image" content="https://justcalldibs.com/images/og/index-og.jpg">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Sora:wght@300;400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<style>
+body {
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--sans);
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+::selection { background: var(--teal); color: var(--ink); }
 
-<header class="site-header">
-  <div class="app-icon">🏠</div>
-  <span class="app-name">Dibs</span>
-  <a class="back-link" href="index.html">← Back</a>
+.site-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px var(--pad);
+  background: linear-gradient(180deg, rgba(14,14,27,.92) 0%, rgba(14,14,27,0) 100%);
+}
+.wordmark {
+  font-family: var(--wordmark);
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+  text-decoration: none;
+}
+.wordmark span { color: var(--teal); }
+.nav-back {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  text-decoration: none;
+  transition: color .3s;
+}
+.nav-back:hover { color: var(--teal); }
+
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 var(--pad); }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--teal);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.eyebrow::before {
+  content: '';
+  width: 40px; height: 1px;
+  background: var(--teal);
+  display: inline-block;
+}
+
+.legal-header {
+  padding: clamp(120px, 18vh, 176px) 0 40px;
+}
+.legal-header h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 5.6vw, 3.6rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin: 20px 0 14px;
+}
+.legal-meta {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .04em;
+  color: var(--cream-faint);
+  margin-bottom: 18px;
+}
+.legal-lede {
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--cream-dim);
+  max-width: 62ch;
+}
+.legal-lede strong { color: var(--cream); font-weight: 600; }
+
+/* --- Plain-language summary card --- */
+.summary-card {
+  margin: 36px 0 8px;
+  padding: 28px clamp(20px, 3vw, 32px);
+  background: var(--ink-card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+}
+.summary-card h2 {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin: 0 0 16px;
+}
+.summary-card ul { margin: 0; padding: 0; list-style: none; }
+.summary-card li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 12px;
+  font-size: 15px;
+  color: var(--cream-dim);
+}
+.summary-card li:last-child { margin-bottom: 0; }
+.summary-card li::before {
+  content: '✓';
+  position: absolute;
+  left: 0; top: 1px;
+  color: var(--teal);
+  font-weight: 700;
+  font-size: 13px;
+}
+.summary-card li strong { color: var(--cream); font-weight: 600; }
+
+/* --- Table of contents --- */
+.toc {
+  margin: 40px 0 8px;
+  padding: 24px clamp(20px, 3vw, 32px);
+  border: 1px solid var(--line-soft);
+  border-radius: 16px;
+}
+.toc p.toc-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--cream-faint);
+  margin: 0 0 14px;
+}
+.toc ol {
+  list-style: none;
+  columns: 2;
+  column-gap: 28px;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+.toc li { margin-bottom: 9px; break-inside: avoid; }
+.toc a { color: var(--cream-dim); text-decoration: none; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
+.toc a:hover { color: var(--teal); border-color: var(--teal); }
+@media (max-width: 640px) {
+  .toc ol { columns: 1; }
+}
+
+/* --- Body sections --- */
+.legal-body { padding: 56px 0 40px; }
+.legal-section {
+  padding: 34px 0;
+  border-top: 1px solid var(--line-soft);
+  scroll-margin-top: 90px;
+}
+.legal-section:first-child { border-top: none; }
+.legal-section h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  letter-spacing: -0.005em;
+  margin: 0 0 6px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.legal-section h2 .sec-num {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--teal);
+  font-weight: 400;
+}
+.legal-section h3 {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--cream);
+  margin: 26px 0 10px;
+}
+.legal-section p { color: var(--cream-dim); font-size: 15.5px; margin: 0 0 14px; }
+.legal-section p:last-child { margin-bottom: 0; }
+.legal-section strong { color: var(--cream); font-weight: 600; }
+.legal-section a { color: var(--teal); text-decoration: none; border-bottom: 1px solid rgba(0,210,198,.35); }
+.legal-section a:hover { border-color: var(--teal); }
+.legal-section ul, .legal-section ol.plain {
+  margin: 0 0 16px;
+  padding-left: 22px;
+  color: var(--cream-dim);
+  font-size: 15.5px;
+}
+.legal-section li { margin-bottom: 8px; }
+.legal-section li:last-child { margin-bottom: 0; }
+.legal-section li strong { color: var(--cream); }
+
+.not-collected {
+  margin-top: 8px;
+  padding: 18px 20px;
+  border: 1px solid rgba(255,107,107,.25);
+  background: rgba(255,107,107,.05);
+  border-radius: 14px;
+}
+.not-collected p.label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin: 0 0 10px;
+}
+
+.table-wrap { overflow-x: auto; margin: 4px 0 18px; border: 1px solid var(--line-soft); border-radius: 12px; }
+table.subs {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 560px;
+}
+table.subs th, table.subs td {
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line-soft);
+  vertical-align: top;
+}
+table.subs th {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--cream-faint);
+  font-weight: 400;
+  background: rgba(244,239,230,.03);
+}
+table.subs td { color: var(--cream-dim); }
+table.subs td strong { color: var(--cream); }
+table.subs tr:last-child td { border-bottom: none; }
+
+.back-to-top {
+  display: inline-block;
+  margin-top: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--cream-faint);
+  text-decoration: none;
+}
+.back-to-top:hover { color: var(--teal); }
+
+.contact-card {
+  margin-top: 12px;
+  padding: 22px 24px;
+  background: var(--ink-card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+.contact-card p { margin: 0 0 6px; }
+.contact-card p:last-child { margin-bottom: 0; }
+
+footer {
+  border-top: 1px solid var(--line-soft);
+  padding: 32px var(--pad) 48px;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--cream-faint);
+}
+footer a { color: var(--cream-dim); text-decoration: none; }
+footer a:hover { color: var(--teal); }
+footer .fine + .fine { margin-top: 6px; }
+
+@media (max-width: 600px) {
+  .site-nav { padding: 18px var(--pad); }
+}
+</style>
+</head>
+<body id="top">
+
+<nav class="site-nav">
+  <a class="wordmark" href="index.html">dibs<span>.</span></a>
+  <a class="nav-back" href="index.html">&larr; Back to Dibs</a>
+</nav>
+
+<header class="legal-header">
+  <div class="wrap">
+    <p class="eyebrow">Legal</p>
+    <h1>Privacy Policy</h1>
+    <p class="legal-meta">Last updated August 5, 2026 &middot; Effective for the Dibs TestFlight beta and any public release</p>
+    <p class="legal-lede">This is the whole policy — <strong>no separate "for beta testers" version.</strong> It covers the Dibs iOS app (including the TestFlight beta) and the justcalldibs.com website. We wrote the short version first; the full detail follows below it.</p>
+  </div>
 </header>
 
-<div class="content">
-  <h1 class="page-title">Privacy Policy</h1>
-  <p class="page-meta">Last updated: July 2026</p>
-
-  <div class="section">
-    <h2>Overview</h2>
-    <p>Dibs is built for households. We collect only what is necessary to make the app work, and we never sell your data.</p>
-  </div>
-
-  <div class="section">
-    <h2>1. Information We Collect</h2>
-    <p>We collect the following when you use Dibs:</p>
+<div class="wrap">
+  <div class="summary-card">
+    <h2>The short version</h2>
     <ul>
-      <li><strong>Account info:</strong> email address and display name used to create your account</li>
-      <li><strong>Facebook Login info:</strong> your Facebook app-scoped user ID, name, email address, and profile picture, when available and authorized by you</li>
-      <li><strong>Household data:</strong> chores, assignments, schedules, and message board posts shared within your household</li>
-      <li><strong>Device info:</strong> push notification tokens to deliver reminders to your device</li>
-      <li><strong>Usage data:</strong> crash reports and basic analytics to improve app stability</li>
-    </ul>
-    <p>We collect this information directly from you, automatically from your use of Dibs, or from Facebook when you choose to use Facebook Login. Dibs only receives Facebook information that you authorize Facebook to share with us.</p>
-  </div>
-
-  <div class="section">
-    <h2>2. How We Use Your Information</h2>
-    <ul>
-      <li>To operate and sync your household data across devices</li>
-      <li>To authenticate you and create or link your Dibs account when you use Facebook Login</li>
-      <li>To send push notifications and daily summary reminders you configure</li>
-      <li>To diagnose crashes and fix bugs</li>
-      <li>To respond to support requests</li>
+      <li><strong>We built Dibs to run your household, not to profile you.</strong> Chores, schedules, and household-member names are the core of what we store.</li>
+      <li><strong>Household names, member display names, and message-board text are encrypted</strong> in our database with a key unique to your household. This is server-side encryption, not end-to-end encryption — see <a href="#security">Section 5</a> for exactly what that does and doesn't mean.</li>
+      <li><strong>Invite codes are never stored as plain text</strong> — only a salted, one-way hash.</li>
+      <li><strong>Chore reminders live entirely on your device.</strong> Dibs does not use push notifications; nothing about your reminders is sent to a third-party push service.</li>
+      <li><strong>Calendar Sync is optional.</strong> If you turn it on, Dibs imports your existing calendar events into your household's chore list (so that content does reach our servers and becomes visible to your household) and can add Dibs chores to your device Calendar. Reminders access is read-only and never leaves your device — see <a href="#collect">Section 2.4</a>.</li>
+      <li><strong>If you use AI chore-planning features,</strong> the text you type and your chore/schedule content — never your name, email, or exact location — is sent to one of our AI providers (Anthropic or OpenAI) to generate a response.</li>
+      <li><strong>We do not sell your personal information,</strong> and we do not use your data for third-party advertising or ad personalization.</li>
+      <li><strong>We collect analytics</strong> (Firebase Analytics) on a fixed, closed list of product-usage events and three narrow account properties — never raw personal content.</li>
+      <li><strong>You can delete your own account at any time</strong> in-app or by emailing us. Any household member can also delete the entire household — including every other member's account — see <a href="#retention">Section 6</a> for exactly what that removes.</li>
     </ul>
   </div>
 
-  <div class="section">
-    <h2>3. Facebook and Meta Platform Data</h2>
-    <p>If you choose Facebook Login, Dibs processes the Facebook information described above only to authenticate you and provide your Dibs account. We do not sell Meta Platform Data, use it for advertising, or share it with third parties except service providers that help us operate Dibs or when required by law.</p>
-    <p>You can revoke Dibs' access to your Facebook account at any time from Facebook's <strong>Settings &amp; privacy → Settings → Apps and Websites</strong>. Revoking access prevents Dibs from receiving additional Facebook data, but it does not automatically delete information already stored by Dibs. To delete that information, follow the instructions on our <a href="data-deletion/">Data Deletion page</a>.</p>
-  </div>
-
-  <div class="section">
-    <h2>4. Data Storage and Retention</h2>
-    <p>Your data is stored securely using Google Firebase (Firestore and Authentication), which is hosted on Google Cloud infrastructure. Data is encrypted in transit and at rest.</p>
-    <p>We retain personal data while your account is active and as needed to provide Dibs. After a verified deletion request, we delete or de-identify personal data associated with your account within 30 days, except information we must retain to comply with law, resolve disputes, prevent fraud, or protect Dibs and its users. Shared household records may remain in de-identified form so other household members can retain an accurate history.</p>
-  </div>
-
-  <div class="section">
-    <h2>5. Data Sharing</h2>
-    <p>We do not sell, rent, or share your personal data with third parties for marketing purposes. We share data only in the following circumstances:</p>
-    <ul>
-      <li>With Firebase/Google as our infrastructure provider</li>
-      <li>With Crashlytics for crash reporting</li>
-      <li>When required by law or to protect our rights</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>6. Household Members</h2>
-    <p>When you join or create a household, your display name and chore activity are visible to other members of that household. Leaving a household removes your active membership, but historical chore records may remain for continuity. If you delete your account, retained household history is de-identified as described above.</p>
-  </div>
-
-  <div class="section">
-    <h2>7. Your Choices and Rights</h2>
-    <p>You may ask to access, correct, or delete your personal data, or revoke your consent where applicable, by contacting <a href="mailto:support@dibs.app">support@dibs.app</a>. These choices are available to all Dibs users. See our <a href="data-deletion/">Data Deletion page</a> for deletion instructions. Verified deletion requests are completed within 30 days, subject to the limited retention described above.</p>
-  </div>
-
-  <div class="section">
-    <h2>8. Children</h2>
-    <p>Dibs is not directed at children under 13. We do not knowingly collect personal information from children under 13.</p>
-  </div>
-
-  <div class="section">
-    <h2>9. Changes to This Policy</h2>
-    <p>We may update this policy periodically. We'll notify you of significant changes via the app. Continued use after changes are posted constitutes acceptance.</p>
-  </div>
-
-  <div class="section">
-    <h2>10. Contact</h2>
-    <p>Dibs is responsible for the personal information described in this policy. For privacy questions, access or correction requests, and data deletion requests, contact <a href="mailto:support@dibs.app">support@dibs.app</a>.</p>
-  </div>
+  <nav class="toc" aria-label="Table of contents">
+    <p class="toc-label">Jump to a section</p>
+    <ol>
+      <li><a href="#scope">1. Who this policy covers</a></li>
+      <li><a href="#collect">2. Information we collect</a></li>
+      <li><a href="#use">3. How we use information</a></li>
+      <li><a href="#sharing">4. How information is shared</a></li>
+      <li><a href="#security">5. Data security</a></li>
+      <li><a href="#retention">6. Data retention &amp; deletion</a></li>
+      <li><a href="#rights">7. Your rights &amp; choices</a></li>
+      <li><a href="#children">8. Children's privacy</a></li>
+      <li><a href="#international">9. International data transfers</a></li>
+      <li><a href="#california">10. California privacy rights</a></li>
+      <li><a href="#gdpr">11. EEA, UK &amp; Swiss users</a></li>
+      <li><a href="#changes">12. Changes to this policy</a></li>
+      <li><a href="#contact">13. Contact us</a></li>
+    </ol>
+  </nav>
 </div>
 
-<footer class="site-footer">
-  &copy; 2026 Dibs. All rights reserved.
+<main class="legal-body">
+  <div class="wrap">
+
+    <section class="legal-section" id="scope">
+      <h2><span class="sec-num">01</span> Who this policy covers</h2>
+      <p>This Privacy Policy explains what Dibs Labs ("Dibs," "we," "us," or "our") collects when you use the Dibs iOS app — including the TestFlight beta — and the justcalldibs.com website (together, the "Service"), why we collect it, who we share it with, and the choices you have.</p>
+      <p>By using the Service, you agree to the practices described here. If you don't agree, please don't use Dibs. If you're using Dibs on behalf of your household, we assume you have your household members' understanding that their name, chores, and messages will be visible to other members of that household — that visibility is the point of the product.</p>
+    </section>
+
+    <section class="legal-section" id="collect">
+      <h2><span class="sec-num">02</span> Information we collect</h2>
+      <p>We collect information in three ways: what you give us directly, what we collect automatically as you use the app, and what we receive from the sign-in provider you choose. Every category below is something a real, currently-shipping part of Dibs actually does — not a hypothetical.</p>
+
+      <h3>2.1 Account &amp; sign-in information</h3>
+      <p>Dibs requires an account to use. You can create one with:</p>
+      <ul>
+        <li><strong>Sign in with Apple</strong> — we receive your name (if you choose to share it — Apple only provides this on your very first sign-in) and an email address, which may be a real address or Apple's private relay address if you choose to hide your email.</li>
+        <li><strong>Google Sign-In</strong> — we receive your name, email address, and profile photo URL from your Google account.</li>
+        <li><strong>Snapchat (Snap Login Kit)</strong> — we receive a Snap-issued external ID and your Snapchat display name through Snapchat's own sign-in flow. We do not receive your Snapchat password, friend list, or Snap content.</li>
+      </ul>
+      <p>Facebook Login and passwordless email-link sign-in exist in our codebase but are <strong>turned off</strong> and not offered to users as of this policy's date. The underlying Meta (Facebook) SDK ships in our app for that future option, but we've explicitly disabled its automatic event logging and advertiser-ID collection, so it does not report your app opens or activity to Meta on its own. We collect nothing through Facebook today. If we turn Facebook Login on: any information Facebook provides to us about you ("Platform Data") will be used only to operate your Dibs account, will never be sold or used for advertising, and you'll be able to ask us to delete it or revoke Dibs' access via your Facebook settings at any time. We will update this policy before either sign-in method goes live.</p>
+      <p>Whichever method you use, we create a Dibs account identified by a unique ID issued by our authentication provider (Firebase Authentication, operated by Google).</p>
+
+      <h3>2.2 Profile information</h3>
+      <ul>
+        <li><strong>Display name</strong> — the name your household sees. Encrypted at rest (Section 5).</li>
+        <li><strong>Avatar</strong> — either a photo URL from your sign-in provider (we store a link; we do not host or re-encode your photo) or a monogram (your initials on a chosen or randomly assigned color).</li>
+        <li><strong>Preferences</strong> — your chosen week-start day and notification settings (Section 2.7).</li>
+      </ul>
+
+      <h3>2.3 Household, chore &amp; message-board content</h3>
+      <p>The core of the product. When you create or join a household, we store:</p>
+      <ul>
+        <li><strong>Household name</strong> — encrypted at rest (Section 5).</li>
+        <li><strong>Household membership</strong> — which accounts belong to the household and who has admin rights.</li>
+        <li><strong>Invite codes</strong> — generated codes used to join a household are never stored as plain text; only a salted cryptographic hash is kept, so we cannot recover a live invite code from our database.</li>
+        <li><strong>Chores</strong> — title, notes, category, effort/skill/energy level, location label (a short description like "Kitchen," not a GPS coordinate), duration, repeat schedule, who it's assigned to, and completion status.</li>
+        <li><strong>Message-board posts</strong> — text posts are encrypted at rest (Section 5); drawings/sketches posted to the board are stored as stroke/path data and are not separately encrypted, since they aren't a text string. Both are visible to your household members.</li>
+        <li><strong>Notification-center entries</strong> — in-app records of chore reminders, team-up requests, and similar household activity.</li>
+      </ul>
+      <p>All of this content is, by design, visible to the other members of your household — that's what makes Dibs work.</p>
+
+      <h3>2.4 Calendar &amp; Reminders (optional)</h3>
+      <p>If you turn on Calendar Sync, Dibs asks iOS for access to your device's <strong>Calendar</strong> and <strong>Reminders</strong>. This is the one place in the app where device-permission data does more than stay on your phone, so we want to be exact about each direction:</p>
+      <ul>
+        <li><strong>Calendar, read &amp; import:</strong> Dibs reads your existing calendar events so it can show them alongside your chores, and imports the current week's events into your household's chore list. That means an imported event's title, time, duration, and location <strong>are written to Dibs' servers</strong> as a new chore — visible to your household members, the same as any chore anyone adds by hand.</li>
+        <li><strong>Calendar, write:</strong> chores you create in Dibs can also be added to your device's Calendar app, so they show up there too.</li>
+        <li><strong>Reminders, read-only:</strong> Dibs reads your due Reminders locally so it can surface them alongside your chores. This content is <strong>not</strong> uploaded to Dibs' servers, and Dibs never creates, edits, or deletes anything in your Reminders app.</li>
+      </ul>
+      <p>You can revoke Calendar/Reminders access at any time in iOS Settings &rarr; Privacy &amp; Security, or turn off Calendar Sync inside Dibs — turning it off stops future imports but doesn't retroactively delete chores already created from past imports (those are chores like any other; delete them the same way).</p>
+
+      <h3>2.5 Voice &amp; speech input (optional)</h3>
+      <p>If you use voice entry to add a chore, Dibs requests microphone access and uses Apple's Speech Recognition framework to convert your speech to text (this may be processed on-device or by Apple's speech recognition service, depending on your device and settings — that step is governed by Apple's own privacy practices, not ours). Dibs receives only the resulting text, which becomes the chore's name; we do not store audio recordings.</p>
+
+      <h3 id="ai-collect">2.6 AI-assisted features</h3>
+      <p>Dibs offers optional AI features: chore breakdown ("Think Out Loud"), an AI daily planner, AI-generated starter chores, and AI batch chore generation. When you use one of these, we send the relevant text to one of our AI providers — currently <strong>Anthropic</strong> (Claude models) or <strong>OpenAI</strong> (GPT models), depending on the feature — to generate a response. What's sent depends on the feature, but is limited to:</p>
+      <ul>
+        <li>The free-text goal, task, or note you typed (capped in length by the feature).</li>
+        <li>Your household's chore catalog (names and durations) and, where relevant, your existing schedule for the day.</li>
+        <li>For starter-chore generation: your stated household type, member count, chosen priorities (chosen from a fixed list, not free text), plus any free-text notes you added.</li>
+      </ul>
+      <p><strong>We do not send your name, email address, exact location, or any other household member's personal information</strong> to Anthropic or OpenAI as part of these requests. Both process this content under their own privacy and data-use terms, acting as our service providers. We do not authorize either of them to use it to train their models on our behalf. Their own policies govern how long they retain API request content.</p>
+
+      <h3>2.7 Notifications</h3>
+      <p>Dibs uses <strong>local, on-device notifications</strong> — scheduled by the app itself using Apple's UserNotifications framework — for chore reminders, team-up alerts, and daily summaries. <strong>Dibs does not use push notifications</strong> and does not register your device with, or send notification content to, any push-notification service. Your notification preferences (which types are on, how many minutes before a chore to remind you) are stored in your account so they sync across your own devices.</p>
+
+      <h3>2.8 Analytics</h3>
+      <p>We use <strong>Firebase Analytics</strong> (a Google product) to understand product usage. Our analytics implementation is deliberately narrow: it logs a fixed, closed set of product events — things like completing sign-up, adding or claiming a chore, viewing a screen, generating an AI day plan, or opening the paywall — plus three account-level properties: a bucketed household size ("1," "2," "3-4," or "5+" — never the exact count or member names), your subscription tier ("free" or "plus"), and whether you're a household admin (true/false). Analytics events are associated with a Firebase-issued user ID, not your name or email.</p>
+      <p>We do <strong>not</strong> use analytics data for ad personalization — ad-personalization signals are explicitly disabled in our configuration — and we do not use an advertising identifier (IDFA) or any cross-app/cross-site tracking. Because Dibs does not engage in tracking as Apple defines it, the app does not show an App Tracking Transparency prompt.</p>
+
+      <h3>2.9 Diagnostics &amp; crash reports</h3>
+      <p>We use <strong>Firebase Crashlytics</strong> (a Google product) to receive crash reports if the app crashes or hits an unexpected error. A crash report can include: your Firebase user ID, your household ID, the app screen you were on, short log breadcrumbs we write for debugging, and standard technical diagnostics such as device model, OS version, app version, and a stack trace. This exists to help us fix bugs, not to profile you.</p>
+
+      <h3>2.10 Subscription &amp; payment information</h3>
+      <p>Dibs plans to offer an optional premium tier ("Dibs Plus"). <strong>As of this policy's date, purchasing is not yet available — no payment can currently be made in the app.</strong> When it does launch, all payment will be handled entirely by Apple through the App Store's In-App Purchase system. Dibs will never receive or store your credit card number or other payment details — Apple will. We will receive only your subscription status (e.g., active, tier, renewal state) from Apple, or from a subscription-management service acting on our behalf using that Apple-provided data, so we can unlock the features you paid for. If we bring on a subscription-management service, we'll name them in the table in Section 4.1 before your data ever reaches them.</p>
+
+      <h3>2.11 Website &amp; waitlist</h3>
+      <p>The justcalldibs.com website uses <strong>Plausible Analytics</strong>, a privacy-focused analytics service that does not use cookies and does not collect or store personal data or IP addresses, to measure page views. If you join our pre-launch waitlist, we store the email address you provide, the time you submitted it, and that it came from the landing page, so we can email you when Dibs is ready. We don't use this list for anything else, and submitting the same address twice does not create a duplicate entry. We keep waitlist emails until we've sent our launch notice or you ask us to remove yours sooner. To prevent automated abuse of the waitlist form, we briefly associate your IP address with your submission for rate-limiting; it's not linked to your email and is discarded automatically within hours. Our web server's standard access logs may also record visitor IP addresses for security purposes, separately from Plausible's cookie-free analytics. Our website doesn't track individual visitors, so we don't respond differently to a "Do Not Track" browser signal — there's nothing to opt out of.</p>
+
+      <h3>2.12 Information we do not collect</h3>
+      <div class="not-collected">
+        <p class="label">We want this to be unambiguous</p>
+        <p>Dibs does not use GPS or any other device location service, and does not ask for location permission. It does not access your device's contacts. It does not collect payment card numbers. It does not collect government ID numbers or Social Security numbers. Face ID/biometric verification, if you enable it to unlock Dibs, is handled entirely on-device by Apple's LocalAuthentication framework — Dibs never receives or stores biometric data. Our data model contains optional, currently-unused fields for date of birth, gender, living situation, and physical limitations, held over from an earlier onboarding design that was never shipped — as of this policy's date, no part of the app writes to them, and we collect none of that information.</p>
+      </div>
+    </section>
+
+    <section class="legal-section" id="use">
+      <h2><span class="sec-num">03</span> How we use information</h2>
+      <p>We use the information described in Section 2 to:</p>
+      <ul>
+        <li>Create and maintain your account and household, and let household members coordinate chores.</li>
+        <li>Operate features you choose to use — calendar sync, voice entry, AI planning, notifications, subscriptions.</li>
+        <li>Send you service-related communications, such as household activity notifications (on-device) and, if you're on our waitlist, a launch notice.</li>
+        <li>Diagnose and fix bugs and crashes.</li>
+        <li>Understand aggregate product usage so we can prioritize what to build next.</li>
+        <li>Detect and prevent abuse — for example, rate-limiting repeated invite-code attempts or waitlist submissions.</li>
+        <li>Comply with legal obligations and enforce our terms.</li>
+      </ul>
+      <p>We do not use your household's chore or message content, or any AI-feature input, to serve you ads. We do not sell your personal information to anyone, for any purpose.</p>
+    </section>
+
+    <section class="legal-section" id="sharing">
+      <h2><span class="sec-num">04</span> How information is shared</h2>
+      <p>We do not sell your personal information. We share information only with the service providers who help us run Dibs, each bound to use it solely to provide their service to us, and in the limited other circumstances described below.</p>
+
+      <h3>4.1 Service providers</h3>
+      <div class="table-wrap">
+        <table class="subs">
+          <thead>
+            <tr><th>Provider</th><th>What they do for us</th><th>What they receive</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Google / Firebase</strong></td><td>Authentication, database (Firestore), backend functions, Secret Manager, Analytics, Crashlytics</td><td>Essentially all account and household data described in Section 2, as needed to run the Service</td></tr>
+            <tr><td><strong>Anthropic</strong></td><td>AI chore-planning features (Claude models)</td><td>Chore/schedule content and free-text prompts described in Section 2.6</td></tr>
+            <tr><td><strong>OpenAI</strong></td><td>AI chore-planning features (GPT models)</td><td>Chore/schedule content and free-text prompts described in Section 2.6</td></tr>
+            <tr><td><strong>Apple</strong></td><td>Sign in with Apple, In-App Purchase / App Store payments (once live), Speech Recognition, Face ID</td><td>Whatever you share via Sign in with Apple; App Store purchase data; voice audio for Speech Recognition (on-device when possible, otherwise Apple's own speech-recognition service); Face ID stays fully on-device</td></tr>
+            <tr><td><strong>Google Sign-In</strong></td><td>Account authentication</td><td>Name, email, profile photo URL from your Google account</td></tr>
+            <tr><td><strong>Snap Inc.</strong></td><td>Account authentication (Snap Login Kit)</td><td>Snap-issued external ID and Snapchat display name</td></tr>
+            <tr><td><strong>Plausible Analytics</strong></td><td>Cookie-free website analytics</td><td>Aggregate, non-personal page-view data for justcalldibs.com</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:-8px;">We don't yet use a third-party subscription-management service (Section 2.10) — if we add one, we'll add it to this table before your data reaches them.</p>
+
+      <h3>4.2 Other household members</h3>
+      <p>Your display name, avatar, chores, message-board posts, and admin status are visible to the other members of your household. That's the product working as intended, not a third-party disclosure — but you should know it before inviting people to your household.</p>
+
+      <h3>4.3 Legal &amp; safety</h3>
+      <p>We may disclose information if required by law, subpoena, or legal process, or if we believe in good faith it's necessary to protect the rights, property, or safety of Dibs, our users, or the public.</p>
+
+      <h3>4.4 Business transfers</h3>
+      <p>If Dibs Labs is involved in a merger, acquisition, financing, or sale of assets, your information may be transferred as part of that transaction. We'll let you know via this policy or direct notice if your information becomes subject to a different privacy policy as a result.</p>
+    </section>
+
+    <section class="legal-section" id="security">
+      <h2><span class="sec-num">05</span> Data security</h2>
+      <p>We take the following concrete measures, and we're deliberately specific here because vague security claims aren't verifiable:</p>
+      <ul>
+        <li><strong>Per-household field encryption.</strong> Household names, household-member display names, and message-board text posts are encrypted at rest (AES-256-GCM) using an encryption key that is uniquely derived for your household and never leaves our server environment. A raw export of our database would show ciphertext for these specific fields, not readable names or message text. (One related exception, in the interest of being exhaustive: when a new message-board post is created, we write a short unencrypted preview of it — the author's name and the first ~75 characters — into your household's in-app notification feed, so members can see "who posted what" without opening the board. That preview is plaintext in that one place, even though the message itself is encrypted at rest.)</li>
+        <li><strong>This is not end-to-end encryption.</strong> We want to be precise about this rather than let a stronger-sounding term do the work: Dibs, as the operator of the service, holds the master key and has the technical ability to decrypt this data server-side to operate the app (for example, to show your household name back to you). We are not claiming a "zero-knowledge" or "we can't read your data" system. A small number of authorized Dibs staff also have internal tooling to look up account and household records for customer support and abuse investigation — this tooling does not decrypt the fields above, but it can read everything else (chore titles and notes, for example, are not encrypted). What the encryption above does protect against is a raw data leak or backup exposure — in that scenario, these specific fields are unreadable without our server-side key.</li>
+        <li><strong>Invite codes are hashed, never stored.</strong> We generate a code, give it to you once, and store only a salted one-way hash of it — we can verify a submitted code matches, but we cannot look up or recover a live code from our database.</li>
+        <li><strong>Server-enforced access rules.</strong> Our database security rules deny household data to anyone who isn't an authenticated member of that household, and deny client-side writes to the encrypted fields above entirely — only our backend functions can write them.</li>
+        <li><strong>App attestation and rate limiting.</strong> Sensitive operations use request rate limits (for example, on invite-code attempts) to raise the cost of automated abuse, and are designed to use Apple/Google App Check, which verifies requests come from a genuine copy of the Dibs app, as an additional layer where enabled.</li>
+        <li><strong>Encryption in transit.</strong> All communication between the Dibs app and our servers uses TLS.</li>
+      </ul>
+      <p>No system is perfectly secure, and we can't guarantee absolute security. If we experience a data breach that affects you, we'll notify you as required by applicable law.</p>
+    </section>
+
+    <section class="legal-section" id="retention">
+      <h2><span class="sec-num">06</span> Data retention &amp; deletion</h2>
+      <p>We keep your information for as long as your account is active, plus a reasonable period afterward for backups, fraud prevention, and legal compliance.</p>
+      <h3>What happens when you delete your account</h3>
+      <p>You can delete your account from within the app, or by emailing us. When you do, we:</p>
+      <ul>
+        <li>Delete your user profile document and remove you from your household's member list.</li>
+        <li>Unassign any chores that were assigned to you (the chores themselves stay with the household, since they're shared household content — but they're no longer linked to you).</li>
+        <li>Remove your authorship from message-board posts you wrote (the post's text remains visible to your former household, since it's shared content, but is no longer attributed to your name).</li>
+        <li>Remove you from any pending notifications, and delete notifications that were only for you.</li>
+        <li>Delete your authentication account entirely, so you can no longer sign in.</li>
+      </ul>
+      <h3>What happens when a household is deleted — read this before you tap it</h3>
+      <p>Separately from leaving or deleting your own account, <strong>any member of a household</strong> — not only an admin — can delete the entire household at any time. Deleting a household is more consequential than it may sound: it permanently deletes the household's chores and message board, <strong>and permanently deletes the Firebase sign-in account of every member of that household</strong> — not just the account of the person who deleted it — so none of them can sign in again. If you're a member of a household and aren't ready to lose your account, the safer move is to leave the household yourself (another member can still delete it later, but at least the choice to lose your own account stays yours until then).</p>
+      <p>Some information may persist briefly in backups or logs after deletion, and we may retain minimal records where required for legal, security, or fraud-prevention purposes. Abuse-prevention rate-limit records, for example, are keyed to an account ID (or, for the public waitlist form, an IP address) and a short time window — typically a few hours — and expire automatically.</p>
+    </section>
+
+    <section class="legal-section" id="rights">
+      <h2><span class="sec-num">07</span> Your rights &amp; choices</h2>
+      <ul>
+        <li><strong>Access &amp; correction</strong> — you can view and edit most of your profile and household information directly in the app. For anything you can't self-serve, email us and we'll help.</li>
+        <li><strong>Deletion</strong> — delete your account in-app, or email us; see Section 6 for exactly what that removes.</li>
+        <li><strong>Device permissions</strong> — Calendar, Reminders, Microphone, Speech Recognition, Face ID, and Notification access can each be reviewed or revoked at any time in iOS Settings &rarr; Privacy &amp; Security (or Settings &rarr; Notifications), or by toggling the corresponding setting inside Dibs.</li>
+        <li><strong>Analytics</strong> — analytics collection does not currently have an in-app toggle. If you'd like your account excluded from analytics, email us at the address in Section 13 and we'll action it manually.</li>
+        <li><strong>Marketing email</strong> — if you're on our pre-launch waitlist, every email we send will include a way to stop receiving them.</li>
+      </ul>
+    </section>
+
+    <section class="legal-section" id="children">
+      <h2><span class="sec-num">08</span> Children's privacy</h2>
+      <p>Dibs is not directed to children under 13, and we do not knowingly collect personal information from children under 13. Creating a Dibs account requires signing in through Apple, Google, or Snapchat, each of which has its own age requirements; we don't independently verify age beyond what they provide. If we learn that we've collected personal information from a child under 13 without the consent required by law, we will delete it. If you believe a child has provided us with personal information, please contact us at the address in Section 13.</p>
+      <p>For users in the European Economic Area, the United Kingdom, or Switzerland: the age below which you need a parent or guardian's consent to use a service like Dibs varies by country (roughly 13 to 16). If you're under your country's threshold, please have a parent or guardian create the account or agree on your behalf.</p>
+    </section>
+
+    <section class="legal-section" id="international">
+      <h2><span class="sec-num">09</span> International data transfers</h2>
+      <p>Dibs Labs is based in Odisha, India. Our infrastructure and service providers (Google Cloud / Firebase, Anthropic, OpenAI) process data primarily in the United States and potentially other countries where they operate data centers. Whether you're in India, the United States, or elsewhere, using Dibs means your information is transferred to, stored, and processed in countries other than your own, including the United States, which may have data protection laws different from those where you live. Where required, we rely on appropriate safeguards (such as standard contractual clauses) for these transfers.</p>
+      <h3>India</h3>
+      <p>As an Indian company, we intend to handle personal data consistent with India's Digital Personal Data Protection Act, 2023 (DPDPA) as its provisions come into force and its rules are finalized. In summary: we process your personal data for the specific purposes described in this policy, based on your consent or another lawful basis (such as performing our agreement with you); you have the right to access, correct, and request erasure of your personal data, and to withdraw consent, by contacting us at the address in Section 13; and you have the right to file a complaint with the Data Protection Board of India if you believe we've mishandled your personal data. We'll update this section as the DPDPA's implementing rules are finalized and as our own compliance program matures.</p>
+    </section>
+
+    <section class="legal-section" id="california">
+      <h2><span class="sec-num">10</span> California privacy rights</h2>
+      <p>If you're a California resident, the California Consumer Privacy Act (CCPA), as amended by the CPRA, gives you additional rights over your personal information.</p>
+      <h3>What we collect and why (CCPA categories)</h3>
+      <p>Based on the categories defined by the CCPA, in the past 12 months we have collected: identifiers (name, email, account ID, IP address — the last only briefly, for abuse prevention); internet/network activity (app usage events, device/diagnostic data); audio information (voice input, transiently, for speech-to-text); commercial information (subscription status); and inferences (for example, a bucketed household-size category derived from your account). We collect these for the business and operational purposes described in Section 3. We do not sell or "share" (as that term is defined under the CPRA, including for cross-context behavioral advertising) personal information, and we have not done so in the preceding 12 months. We do not collect Sensitive Personal Information as defined by the CPRA, so the right to limit its use doesn't apply to our practices.</p>
+      <h3>Your rights</h3>
+      <ul>
+        <li><strong>Right to know</strong> what personal information we've collected, used, and disclosed about you.</li>
+        <li><strong>Right to delete</strong> personal information we've collected from you, subject to certain exceptions.</li>
+        <li><strong>Right to correct</strong> inaccurate personal information.</li>
+        <li><strong>Right to opt out</strong> of sale or sharing — not applicable today, since we don't sell or share personal information, but we'll honor this right if that ever changes.</li>
+        <li><strong>Right to non-discrimination</strong> for exercising any of these rights.</li>
+      </ul>
+      <p>To exercise any of these rights, email us at the address in Section 13. We'll verify your request using your account's authentication method before acting on it.</p>
+      <h3>Other U.S. states</h3>
+      <p>If you're a resident of Colorado, Connecticut, Virginia, Utah, Texas, Oregon, or another state with a comprehensive privacy law, you generally have similar rights to know, delete, correct, and port your personal information, and to opt out of targeted advertising or profiling (neither of which we do). To exercise these rights, contact us using Section 13 — we'll honor requests consistent with applicable law regardless of which U.S. state you're in.</p>
+    </section>
+
+    <section class="legal-section" id="gdpr">
+      <h2><span class="sec-num">11</span> EEA, UK &amp; Swiss users</h2>
+      <p>If you're located in the European Economic Area, the United Kingdom, or Switzerland, the following applies in addition to the rest of this policy.</p>
+      <h3>Purposes and legal bases for processing</h3>
+      <ul>
+        <li>Creating/maintaining your account and household features (Section 2.1&ndash;2.3) &rarr; <strong>Contract</strong>.</li>
+        <li>Product analytics, crash diagnostics, and abuse/rate-limit prevention (Section 2.8, 2.9) &rarr; <strong>Legitimate interests</strong> &mdash; our interest in understanding usage and keeping the service reliable and secure, which we limit by using a fixed, closed event list, bucketed rather than raw account properties, and short-lived rate-limit records, rather than broader profiling.</li>
+        <li>Calendar Sync, voice input, and AI features (Section 2.4&ndash;2.6) &rarr; <strong>Consent</strong> &mdash; each is off until you turn it on, and you can withdraw consent at any time by turning it back off, without affecting anything we already did while it was on.</li>
+        <li>Responding to legal process and enforcing our terms &rarr; <strong>Legal obligation</strong> or <strong>legitimate interests</strong>, as applicable.</li>
+      </ul>
+      <h3>Automated decision-making</h3>
+      <p>We do not use automated decision-making or profiling that produces legal or similarly significant effects on you within the meaning of Article 22 GDPR. Our AI features (Section 2.6) generate suggestions &mdash; a proposed chore breakdown, a draft daily plan, starter chores &mdash; that a household member reviews and separately chooses whether to accept; nothing is automatically assigned or decided on your behalf.</p>
+      <h3>International representative &amp; data protection officer</h3>
+      <p>We have not appointed an Article 27 EU/UK representative or a Data Protection Officer, as we don't believe our processing currently meets the thresholds that require either at our size. We'll revisit this as Dibs grows.</p>
+      <h3>Your rights</h3>
+      <p>Subject to applicable law, you have the right to access, rectify, erase, restrict, or port your personal data, to object to certain processing (including processing based on legitimate interests), and to withdraw consent at any time for processing based on consent, without affecting the lawfulness of processing before you withdrew it. To exercise these rights, contact us using Section 13. You also have the right to lodge a complaint with your local data protection supervisory authority.</p>
+    </section>
+
+    <section class="legal-section" id="changes">
+      <h2><span class="sec-num">12</span> Changes to this policy</h2>
+      <p>We may update this policy as Dibs changes — for example, if we add a new sign-in method, a new AI provider, or launch subscriptions more broadly. We'll update the "Last updated" date at the top of this page, and for material changes (such as a new category of data collection, or a new third party receiving your data), we'll take reasonable steps to notify you in-app or by email before the change takes effect. We keep this policy at this same address so it's easy to check back.</p>
+    </section>
+
+    <section class="legal-section" id="contact">
+      <h2><span class="sec-num">13</span> Contact us</h2>
+      <p>Questions, requests, or concerns about this policy or your data? We're a small team and read every message ourselves.</p>
+      <div class="contact-card">
+        <p><strong>Dibs Labs</strong></p>
+        <p>SJN-19, Sahajog Nagar, Budharaja, Sambalpur, Odisha 768004, India</p>
+        <p>Email: <a href="mailto:support@justcalldibs.com">support@justcalldibs.com</a></p>
+        <p>Web: <a href="https://justcalldibs.com">justcalldibs.com</a></p>
+      </div>
+      <p style="margin-top:20px;"><a class="back-to-top" href="#top">&uarr; Back to top</a></p>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <p class="fine"><a href="index.html">Home</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="data-deletion.html">Data Deletion</a> &middot; <a href="help.html">Help</a></p>
+  <p class="fine">&copy; 2026 Dibs Labs</p>
 </footer>
 
 </body>

@@ -1,0 +1,57 @@
+/* Shared across index.html, about.html, research.html, quiz.html,
+   argument-calc.html: brand tokens, base reset, and the .mj image-slot
+   pattern. Everything else (nav, .wrap, .btn, footer, etc.) has real
+   per-page differences and stays in each page's own <style> block. */
+
+:root {
+  --ink: #0E0E1B;
+  --ink-raise: #16162A;
+  --ink-card: #191930;
+  --cream: #F4EFE6;
+  --cream-dim: #B9B4AC;
+  --cream-faint: #7C7880;
+  --teal: #00D2C6;
+  --teal-deep: #00A89E;
+  --coral: #FF6B6B;
+  --gold: #D8B25C;
+  --line: rgba(244, 239, 230, 0.12);
+  --line-soft: rgba(244, 239, 230, 0.07);
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'Sora', system-ui, -apple-system, sans-serif;
+  --mono: 'Space Mono', ui-monospace, monospace;
+  --wordmark: 'Fredoka', var(--sans);
+  --ease-out: cubic-bezier(.22, 1, .36, 1);
+  --pad: clamp(24px, 5vw, 72px);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+::selection { background: var(--teal); color: var(--ink); }
+
+/* --- Midjourney image slot. Missing files hide themselves via JS adding
+   .missing on error. --- */
+.mj {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 20% 10%, rgba(0, 210, 198, .22), transparent 55%),
+    radial-gradient(100% 90% at 85% 90%, rgba(255, 107, 107, .16), transparent 55%),
+    linear-gradient(160deg, #1B1B33, #101020);
+}
+.mj img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.mj img.missing { display: none; }
+
+.cta-bg .mj img, .final-bg .mj img { object-position: 56% 74%; }
+@media (min-width: 1450px) {
+  .cta-bg .mj img, .final-bg .mj img {
+    left: -12.38%;
+    right: auto;
+    width: 113%;
+    object-position: 50% 74%;
+  }
+}

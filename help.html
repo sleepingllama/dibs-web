@@ -1,91 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Help & Support — Dibs</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer data-domain="justcalldibs.com" src="https://plausible.io/js/script.outbound-links.tagged-events.js"></script>
+<title>Help &amp; Support — Dibs</title>
+<meta name="description" content="Answers to common Dibs questions — getting started, chores, notifications, calendar sync, AI features, and your account.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://justcalldibs.com/help.html">
+<meta property="og:title" content="Help & Support — Dibs">
+<meta property="og:description" content="Answers to common Dibs questions — getting started, chores, notifications, calendar sync, AI features, and your account.">
+<meta property="og:image" content="https://justcalldibs.com/images/og/index-og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Help & Support — Dibs">
+<meta name="twitter:description" content="Answers to common Dibs questions — getting started, chores, notifications, calendar sync, AI features, and your account.">
+<meta name="twitter:image" content="https://justcalldibs.com/images/og/index-og.jpg">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Sora:wght@300;400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<style>
+body {
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--sans);
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+::selection { background: var(--teal); color: var(--ink); }
 
-<header class="site-header">
-  <div class="app-icon">🏠</div>
-  <span class="app-name">Dibs</span>
-  <a class="back-link" href="index.html">← Back</a>
+.site-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px var(--pad);
+  background: linear-gradient(180deg, rgba(14,14,27,.92) 0%, rgba(14,14,27,0) 100%);
+}
+.wordmark { font-family: var(--wordmark); font-weight: 700; font-size: 24px; letter-spacing: -0.01em; color: var(--cream); text-decoration: none; }
+.wordmark span { color: var(--teal); }
+.nav-back { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--cream-dim); text-decoration: none; transition: color .3s; }
+.nav-back:hover { color: var(--teal); }
+
+.wrap { max-width: 820px; margin: 0 auto; padding: 0 var(--pad); }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--teal);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.eyebrow::before { content: ''; width: 40px; height: 1px; background: var(--teal); display: inline-block; }
+
+.legal-header { padding: clamp(120px, 18vh, 176px) 0 40px; }
+.legal-header h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 5.6vw, 3.6rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin: 20px 0 14px;
+}
+.legal-lede { font-size: 17px; font-weight: 300; color: var(--cream-dim); max-width: 62ch; }
+.legal-lede strong { color: var(--cream); font-weight: 600; }
+.legal-lede a { color: var(--teal); text-decoration: none; border-bottom: 1px solid rgba(0,210,198,.35); }
+
+.toc {
+  margin: 40px 0 8px;
+  padding: 20px clamp(20px, 3vw, 28px);
+  border: 1px solid var(--line-soft);
+  border-radius: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+}
+.toc a {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .04em;
+  color: var(--cream-dim);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color .2s, border-color .2s;
+}
+.toc a:hover { color: var(--teal); border-color: var(--teal); }
+
+.faq-body { padding: 40px 0 56px; }
+.faq-group { padding: 30px 0; border-top: 1px solid var(--line-soft); scroll-margin-top: 90px; }
+.faq-group:first-child { border-top: none; }
+.faq-group h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(1.4rem, 2.8vw, 1.7rem);
+  margin: 0 0 8px;
+}
+.faq-list { max-width: 100%; }
+.faq-item { border-bottom: 1px solid var(--line-soft); }
+.faq-item:last-child { border-bottom: none; }
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 0;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 16.5px;
+  color: var(--cream);
+  transition: color .3s;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary:hover { color: var(--teal); }
+.faq-x { flex-shrink: 0; width: 26px; height: 26px; border: 1px solid var(--line); border-radius: 50%; position: relative; transition: transform .4s var(--ease-out), border-color .3s; }
+.faq-x::before, .faq-x::after { content: ''; position: absolute; top: 50%; left: 50%; background: var(--cream-dim); transform: translate(-50%, -50%); }
+.faq-x::before { width: 10px; height: 1px; }
+.faq-x::after { width: 1px; height: 10px; transition: opacity .3s; }
+.faq-item[open] .faq-x { transform: rotate(90deg); border-color: var(--teal); }
+.faq-item[open] .faq-x::after { opacity: 0; }
+.faq-a { padding: 0 0 22px; max-width: 68ch; color: var(--cream-dim); font-weight: 300; font-size: 15.5px; }
+.faq-a strong { color: var(--cream); font-weight: 600; }
+.faq-a a { color: var(--teal); text-decoration: none; border-bottom: 1px solid rgba(0,210,198,.35); }
+.faq-a a:hover { border-color: var(--teal); }
+
+.contact-card { margin-top: 12px; padding: 22px 24px; background: var(--ink-card); border: 1px solid var(--line); border-radius: 16px; }
+.contact-card p { margin: 0 0 6px; }
+.contact-card p:last-child { margin-bottom: 0; }
+
+footer {
+  border-top: 1px solid var(--line-soft);
+  padding: 32px var(--pad) 48px;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--cream-faint);
+}
+footer a { color: var(--cream-dim); text-decoration: none; }
+footer a:hover { color: var(--teal); }
+footer .fine + .fine { margin-top: 6px; }
+
+@media (max-width: 600px) { .site-nav { padding: 18px var(--pad); } }
+</style>
+</head>
+<body id="top">
+
+<nav class="site-nav">
+  <a class="wordmark" href="index.html">dibs<span>.</span></a>
+  <a class="nav-back" href="index.html">&larr; Back to Dibs</a>
+</nav>
+
+<header class="legal-header">
+  <div class="wrap">
+    <p class="eyebrow">Help</p>
+    <h1>Help &amp; Support</h1>
+    <p class="legal-lede">Answers to the questions we hear most. Can't find yours? Email us at <a href="mailto:support@justcalldibs.com">support@justcalldibs.com</a> and a real person will get back to you.</p>
+  </div>
+
+  <div class="wrap">
+    <nav class="toc" aria-label="Jump to a topic">
+      <a href="#start">Getting started</a>
+      <a href="#chores">Chores</a>
+      <a href="#calendar">Calendar &amp; reminders</a>
+      <a href="#notifications">Notifications</a>
+      <a href="#ai">AI features</a>
+      <a href="#account">Account &amp; privacy</a>
+      <a href="#plus">Dibs Plus</a>
+    </nav>
+  </div>
 </header>
 
-<div class="content">
-  <h1 class="page-title">Help & Support</h1>
-  <p class="page-meta">Common questions and guidance for using Dibs</p>
+<main class="faq-body">
+  <div class="wrap">
 
-  <div class="section-label">Getting Started</div>
+    <section class="faq-group" id="start">
+      <h2>Getting started</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>How do I create a household?<span class="faq-x"></span></summary>
+          <div class="faq-a">After signing in, choose "Create a household," give it a name, and you're set up. You can invite others right away or start adding chores solo.</div>
+        </details>
+        <details class="faq-item">
+          <summary>How do I invite someone to my household?<span class="faq-x"></span></summary>
+          <div class="faq-a">From Settings, generate an invite code and share it however's easiest — text, message, whatever. Whoever you send it to enters the code when they sign up or from their own Settings to join your household. Invite codes aren't stored anywhere as plain text on our end, and you can rotate (regenerate) yours at any time if you think it's been shared too widely.</div>
+        </details>
+        <details class="faq-item">
+          <summary>How do I join a household someone invited me to?<span class="faq-x"></span></summary>
+          <div class="faq-a">Sign in, then enter the invite code they sent you when prompted during onboarding (or from Settings if you already have an account without a household). You can only belong to one household at a time.</div>
+        </details>
+      </div>
+    </section>
 
-  <div class="section">
-    <h2>How do I create a household?</h2>
-    <p>After signing in, tap <strong>Create Household</strong> on the welcome screen. Give your household a name, then share the invite code with the people you live with so they can join.</p>
+    <section class="faq-group" id="chores">
+      <h2>Chores</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>How do I add a chore?<span class="faq-x"></span></summary>
+          <div class="faq-a">Tap Add Chore and fill in a name, how long it takes, how often it repeats, and a few optional details (category, effort level, notes). You can also use Quick Add for something fast, dictate it by voice, or let AI suggest a starter set for your household (see "AI features" below).</div>
+        </details>
+        <details class="faq-item">
+          <summary>How do I claim ("dibs") a chore?<span class="faq-x"></span></summary>
+          <div class="faq-a">Tap an unclaimed chore on the wheel or in the chore list and claim it. Once you've called it, your household can see it's yours — that's the whole point of Dibs.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Can chores repeat automatically?<span class="faq-x"></span></summary>
+          <div class="faq-a">Yes — set a repeat frequency in days or weeks when you create or edit a chore, and it'll reset on schedule.</div>
+        </details>
+      </div>
+    </section>
+
+    <section class="faq-group" id="calendar">
+      <h2>Calendar &amp; reminders</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Does Dibs sync with my iPhone's Calendar?<span class="faq-x"></span></summary>
+          <div class="faq-a">If you turn on Calendar Sync in Settings, Dibs can show your existing calendar events alongside your chores, import your current week's events as chores, and add chores you create in Dibs to your device Calendar. Reminders access, if you grant it, is read-only — Dibs shows your due Reminders but never creates or edits them. Full detail on exactly what gets uploaded is in our <a href="privacy.html#collect">Privacy Policy</a>.</div>
+        </details>
+        <details class="faq-item">
+          <summary>I turned on Calendar Sync and now I have extra chores — why?<span class="faq-x"></span></summary>
+          <div class="faq-a">That's the import feature working as designed — Calendar Sync brings your existing calendar events into your household's chore list, visible to your household like any other chore. If you don't want that, turn off Calendar Sync in Settings and delete the imported chores you don't want (turning sync off doesn't remove ones already imported).</div>
+        </details>
+      </div>
+    </section>
+
+    <section class="faq-group" id="notifications">
+      <h2>Notifications</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>How do I turn on chore reminders?<span class="faq-x"></span></summary>
+          <div class="faq-a">Go to Settings &rarr; Notifications and enable the types you want (chore reminders, team-up alerts, morning/evening summaries), and set how many minutes before a chore starts you'd like a heads-up.</div>
+        </details>
+        <details class="faq-item">
+          <summary>I'm not getting notifications — what's wrong?<span class="faq-x"></span></summary>
+          <div class="faq-a">Check iOS Settings &rarr; Notifications &rarr; Dibs and make sure notifications are allowed, and check that Do Not Disturb / Focus modes aren't silencing them. Dibs' reminders are scheduled locally on your device — if notifications are allowed at the OS level and still not showing up, try toggling the relevant reminder type off and back on in Dibs' own Settings.</div>
+        </details>
+      </div>
+    </section>
+
+    <section class="faq-group" id="ai">
+      <h2>AI features</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What can Dibs' AI features do?<span class="faq-x"></span></summary>
+          <div class="faq-a">Think Out Loud breaks a vague task into concrete chores. The AI Daily Planner builds a schedule around a goal you type. Starter Chores suggests an initial chore list for your household type. AI batch generation creates several chores at once from a short description. All four generate <strong>suggestions</strong> you review and choose to accept — nothing is added automatically.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Does the AI see everything in my household?<span class="faq-x"></span></summary>
+          <div class="faq-a">No. It sees only what's relevant to the request — the text you type, your chore catalog's names and durations, and your schedule where relevant. It never receives your name, email, or any other household member's personal information. Full detail in our <a href="privacy.html#ai-collect">Privacy Policy</a>.</div>
+        </details>
+      </div>
+    </section>
+
+    <section class="faq-group" id="account">
+      <h2>Account &amp; privacy</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>How do I sign in — is there a password?<span class="faq-x"></span></summary>
+          <div class="faq-a">Dibs uses Sign in with Apple, Google, or Snapchat — there's no separate Dibs password to create, remember, or reset. If you're having trouble signing in, it's almost always an issue with that provider's own account (for example, being signed out of your Apple ID), not with Dibs.</div>
+        </details>
+        <details class="faq-item">
+          <summary>How do I delete my account?<span class="faq-x"></span></summary>
+          <div class="faq-a">In-app: Settings &rarr; Delete Account — it's immediate, no waiting period. Full instructions, and exactly what gets removed, are on our <a href="data-deletion.html">Data Deletion page</a>.</div>
+        </details>
+        <details class="faq-item">
+          <summary>What happens to my data if I leave or get removed from a household?<span class="faq-x"></span></summary>
+          <div class="faq-a">Your chores get unassigned and your message-board posts stay visible but are no longer attributed to you — the same as what happens on account deletion (see the <a href="data-deletion.html">Data Deletion page</a>), except your account itself stays alive so you can join or create another household.</div>
+        </details>
+      </div>
+    </section>
+
+    <section class="faq-group" id="plus">
+      <h2>Dibs Plus</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Is Dibs Plus available yet?<span class="faq-x"></span></summary>
+          <div class="faq-a">Not yet — Dibs Plus, our optional premium tier, isn't purchasable as of this page's date. When it launches, purchases and cancellations will go through Apple's App Store, and we'll update this page and our <a href="terms.html#subscriptions">Terms of Service</a> with the specifics.</div>
+        </details>
+      </div>
+    </section>
+
+    <section class="faq-group" id="contact">
+      <h2>Still stuck?</h2>
+      <div class="contact-card">
+        <p><strong>Dibs Labs support</strong></p>
+        <p>Email: <a href="mailto:support@justcalldibs.com">support@justcalldibs.com</a></p>
+        <p>See also: <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Service</a> &middot; <a href="data-deletion.html">Data Deletion</a></p>
+      </div>
+    </section>
+
   </div>
+</main>
 
-  <div class="section">
-    <h2>How do I invite someone to my household?</h2>
-    <p>Go to <strong>Settings → Household → Members</strong> and tap the invite icon to share your household invite code. Anyone with the code can join from the app's sign-in screen.</p>
-  </div>
-
-  <div class="section-label">Chores</div>
-
-  <div class="section">
-    <h2>How do I add a chore?</h2>
-    <p>Tap the <strong>+</strong> button on the Home or Chores screen and fill in the chore details — name, frequency, duration, and who it's assigned to. You can also tap <strong>Quick Add</strong> from any screen for a faster flow.</p>
-  </div>
-
-  <div class="section">
-    <h2>How do I claim a chore (Dibs)?</h2>
-    <p>Go to the <strong>Dibs</strong> tab and tap any unassigned chore to claim it. You can also assign chores to other household members if you are the admin.</p>
-  </div>
-
-  <div class="section">
-    <h2>Can I set recurring chores?</h2>
-    <p>Yes. When creating or editing a chore, set the <strong>Frequency</strong> field to daily, weekly, or a custom interval. The chore will automatically appear on the schedule at the right cadence.</p>
-  </div>
-
-  <div class="section-label">Notifications</div>
-
-  <div class="section">
-    <h2>How do I turn on reminders?</h2>
-    <p>Go to <strong>Settings → Reminders</strong>. You can enable chore-specific reminders, morning summaries (what's due today), and evening close-out summaries. Each can be toggled and timed independently.</p>
-  </div>
-
-  <div class="section">
-    <h2>I'm not receiving notifications. What should I check?</h2>
-    <ul>
-      <li>Make sure notifications are enabled for Dibs in <strong>iOS Settings → Notifications → Dibs</strong></li>
-      <li>Check that reminders are turned on in <strong>Dibs → Settings → Reminders</strong></li>
-      <li>If using Do Not Disturb, Dibs notifications will be held until it's off</li>
-    </ul>
-  </div>
-
-  <div class="section-label">Account</div>
-
-  <div class="section">
-    <h2>How do I change my password?</h2>
-    <p>Go to <strong>Settings → Account & Security → Reset Password</strong>. We'll send a reset link to your registered email address.</p>
-  </div>
-
-  <div class="section">
-    <h2>How do I delete my account?</h2>
-    <p>Follow the steps on our <a href="data-deletion/">Data Deletion page</a> to request account deletion. We'll remove your account and associated data within 30 days.</p>
-  </div>
-
-  <div class="section-label">Still need help?</div>
-
-  <div class="section">
-    <h2>Contact Support</h2>
-    <p>Can't find what you're looking for? Reach us directly at <a href="mailto:support@dibs.app">support@dibs.app</a> and we'll get back to you as soon as we can.</p>
-  </div>
-</div>
-
-<footer class="site-footer">
-  &copy; 2026 Dibs. All rights reserved.
+<footer>
+  <p class="fine"><a href="index.html">Home</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="data-deletion.html">Data Deletion</a> &middot; <a href="help.html">Help</a></p>
+  <p class="fine">&copy; 2026 Dibs Labs</p>
 </footer>
+
+<script>
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('toggle', () => {
+      if (item.open) {
+        document.querySelectorAll('.faq-item').forEach(o => { if (o !== item) o.open = false; });
+      }
+    });
+  });
+</script>
 
 </body>
 </html>

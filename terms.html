@@ -1,76 +1,405 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms and Conditions — Dibs</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer data-domain="justcalldibs.com" src="https://plausible.io/js/script.outbound-links.tagged-events.js"></script>
+<title>Terms of Service — Dibs</title>
+<meta name="description" content="The agreement between you and Dibs Labs for using the Dibs app and justcalldibs.com. Plain-language summary up top, full detail below.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://justcalldibs.com/terms.html">
+<meta property="og:title" content="Terms of Service — Dibs">
+<meta property="og:description" content="The agreement between you and Dibs Labs for using the Dibs app and justcalldibs.com.">
+<meta property="og:image" content="https://justcalldibs.com/images/og/index-og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Terms of Service — Dibs">
+<meta name="twitter:description" content="The agreement between you and Dibs Labs for using the Dibs app and justcalldibs.com.">
+<meta name="twitter:image" content="https://justcalldibs.com/images/og/index-og.jpg">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Sora:wght@300;400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<style>
+body {
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--sans);
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+::selection { background: var(--teal); color: var(--ink); }
 
-<header class="site-header">
-  <div class="app-icon">🏠</div>
-  <span class="app-name">Dibs</span>
-  <a class="back-link" href="index.html">← Back</a>
+.site-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px var(--pad);
+  background: linear-gradient(180deg, rgba(14,14,27,.92) 0%, rgba(14,14,27,0) 100%);
+}
+.wordmark {
+  font-family: var(--wordmark);
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+  text-decoration: none;
+}
+.wordmark span { color: var(--teal); }
+.nav-back {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  text-decoration: none;
+  transition: color .3s;
+}
+.nav-back:hover { color: var(--teal); }
+
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 var(--pad); }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--teal);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.eyebrow::before {
+  content: '';
+  width: 40px; height: 1px;
+  background: var(--teal);
+  display: inline-block;
+}
+
+.legal-header { padding: clamp(120px, 18vh, 176px) 0 40px; }
+.legal-header h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 5.6vw, 3.6rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin: 20px 0 14px;
+}
+.legal-meta {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .04em;
+  color: var(--cream-faint);
+  margin-bottom: 18px;
+}
+.legal-lede { font-size: 17px; font-weight: 300; color: var(--cream-dim); max-width: 62ch; }
+.legal-lede strong { color: var(--cream); font-weight: 600; }
+
+.summary-card {
+  margin: 36px 0 8px;
+  padding: 28px clamp(20px, 3vw, 32px);
+  background: var(--ink-card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+}
+.summary-card h2 {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin: 0 0 16px;
+}
+.summary-card ul { margin: 0; padding: 0; list-style: none; }
+.summary-card li { position: relative; padding-left: 26px; margin-bottom: 12px; font-size: 15px; color: var(--cream-dim); }
+.summary-card li:last-child { margin-bottom: 0; }
+.summary-card li::before { content: '✓'; position: absolute; left: 0; top: 1px; color: var(--teal); font-weight: 700; font-size: 13px; }
+.summary-card li strong { color: var(--cream); font-weight: 600; }
+
+.toc {
+  margin: 40px 0 8px;
+  padding: 24px clamp(20px, 3vw, 32px);
+  border: 1px solid var(--line-soft);
+  border-radius: 16px;
+}
+.toc p.toc-label { font-family: var(--mono); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--cream-faint); margin: 0 0 14px; }
+.toc ol { list-style: none; columns: 2; column-gap: 28px; margin: 0; padding: 0; font-size: 14px; }
+.toc li { margin-bottom: 9px; break-inside: avoid; }
+.toc a { color: var(--cream-dim); text-decoration: none; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
+.toc a:hover { color: var(--teal); border-color: var(--teal); }
+@media (max-width: 640px) { .toc ol { columns: 1; } }
+
+.legal-body { padding: 56px 0 40px; }
+.legal-section { padding: 34px 0; border-top: 1px solid var(--line-soft); scroll-margin-top: 90px; }
+.legal-section:first-child { border-top: none; }
+.legal-section h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  letter-spacing: -0.005em;
+  margin: 0 0 6px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.legal-section h2 .sec-num { font-family: var(--mono); font-size: 13px; color: var(--teal); font-weight: 400; }
+.legal-section h3 { font-family: var(--sans); font-weight: 700; font-size: 16px; color: var(--cream); margin: 26px 0 10px; }
+.legal-section p { color: var(--cream-dim); font-size: 15.5px; margin: 0 0 14px; }
+.legal-section p:last-child { margin-bottom: 0; }
+.legal-section strong { color: var(--cream); font-weight: 600; }
+.legal-section a { color: var(--teal); text-decoration: none; border-bottom: 1px solid rgba(0,210,198,.35); }
+.legal-section a:hover { border-color: var(--teal); }
+.legal-section ul { margin: 0 0 16px; padding-left: 22px; color: var(--cream-dim); font-size: 15.5px; }
+.legal-section li { margin-bottom: 8px; }
+.legal-section li:last-child { margin-bottom: 0; }
+.legal-section li strong { color: var(--cream); }
+
+.flag {
+  margin-top: 8px;
+  padding: 18px 20px;
+  border: 1px solid rgba(216,178,92,.35);
+  background: rgba(216,178,92,.06);
+  border-radius: 14px;
+}
+.flag p.label { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin: 0 0 10px; }
+
+.contact-card { margin-top: 12px; padding: 22px 24px; background: var(--ink-card); border: 1px solid var(--line); border-radius: 16px; }
+.contact-card p { margin: 0 0 6px; }
+.contact-card p:last-child { margin-bottom: 0; }
+
+.back-to-top { display: inline-block; margin-top: 8px; font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--cream-faint); text-decoration: none; }
+.back-to-top:hover { color: var(--teal); }
+
+footer {
+  border-top: 1px solid var(--line-soft);
+  padding: 32px var(--pad) 48px;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--cream-faint);
+}
+footer a { color: var(--cream-dim); text-decoration: none; }
+footer a:hover { color: var(--teal); }
+footer .fine + .fine { margin-top: 6px; }
+
+@media (max-width: 600px) { .site-nav { padding: 18px var(--pad); } }
+</style>
+</head>
+<body id="top">
+
+<nav class="site-nav">
+  <a class="wordmark" href="index.html">dibs<span>.</span></a>
+  <a class="nav-back" href="index.html">&larr; Back to Dibs</a>
+</nav>
+
+<header class="legal-header">
+  <div class="wrap">
+    <p class="eyebrow">Legal</p>
+    <h1>Terms of Service</h1>
+    <p class="legal-meta">Last updated August 5, 2026 &middot; Effective for the Dibs TestFlight beta and any public release</p>
+    <p class="legal-lede">This is the agreement between you and Dibs Labs for using the Dibs app and justcalldibs.com. It covers the practical stuff — your account, your household, what you can and can't do, and what happens if something goes wrong. Our <a href="privacy.html">Privacy Policy</a> covers what we collect; this document covers the rest.</p>
+  </div>
 </header>
 
-<div class="content">
-  <h1 class="page-title">Terms and Conditions</h1>
-  <p class="page-meta">Last updated: March 2026</p>
-
-  <div class="section">
-    <h2>1. Acceptance of Terms</h2>
-    <p>By downloading or using Dibs, you agree to be bound by these Terms and Conditions. If you do not agree, please do not use the app.</p>
-  </div>
-
-  <div class="section">
-    <h2>2. Use of the App</h2>
-    <p>Dibs is a household chore management tool intended for personal, non-commercial use. You agree to:</p>
+<div class="wrap">
+  <div class="summary-card">
+    <h2>The short version</h2>
     <ul>
-      <li>Use the app only for lawful purposes</li>
-      <li>Not misuse, reverse-engineer, or attempt to gain unauthorized access to the service</li>
-      <li>Keep your account credentials secure and not share them with others outside your household</li>
+      <li><strong>You need to be old enough to use our sign-in providers</strong> (Apple, Google, or Snapchat) on your own — we don't run a separate age gate.</li>
+      <li><strong>You own what you write in Dibs</strong> — messages, notes, drawings. Chores are shared, jointly-editable household data by design, so we treat them a little differently — see <a href="#content">Section 5</a>. Either way, you give us only the license we need to store and display it back to your household.</li>
+      <li><strong>Content you post is visible to your household members</strong> — that's the product, not a bug. Don't put anything in Dibs you wouldn't want the people you invited to see.</li>
+      <li><strong>AI suggestions are suggestions,</strong> not guarantees — review anything Dibs' AI features generate before relying on it.</li>
+      <li><strong>Dibs Plus (our optional paid tier) isn't purchasable yet.</strong> When it is, purchases and cancellations go through Apple's App Store, not us directly.</li>
+      <li><strong>The service is provided "as is,"</strong> and our liability to you is capped at whichever is greater: what you paid us in the past 12 months, or $50 — see <a href="#warranty">Section 8</a> and <a href="#liability">Section 9</a>.</li>
+      <li><strong>We can suspend or remove your access</strong> if you violate our acceptable-use rules (Section 4) — see <a href="#termination">Section 13</a>.</li>
+      <li><strong>You can stop using Dibs and delete your account at any time</strong> — see our <a href="data-deletion.html">Data Deletion page</a> for exactly what that does.</li>
     </ul>
   </div>
 
-  <div class="section">
-    <h2>3. Accounts and Households</h2>
-    <p>You are responsible for all activity that occurs under your account. Household data is shared among members you invite. You may remove members or transfer admin rights at any time from Settings.</p>
-  </div>
-
-  <div class="section">
-    <h2>4. Data and Privacy</h2>
-    <p>We collect and use data as described in our <a href="privacy.html">Privacy Policy</a>. By using Dibs, you consent to those practices.</p>
-  </div>
-
-  <div class="section">
-    <h2>5. Intellectual Property</h2>
-    <p>All content, branding, and code within Dibs are the property of the Dibs team. You may not copy, distribute, or create derivative works without written permission.</p>
-  </div>
-
-  <div class="section">
-    <h2>6. Disclaimer of Warranties</h2>
-    <p>Dibs is provided "as is" without warranties of any kind. We do not guarantee uninterrupted or error-free operation of the service.</p>
-  </div>
-
-  <div class="section">
-    <h2>7. Limitation of Liability</h2>
-    <p>To the fullest extent permitted by law, the Dibs team is not liable for any indirect, incidental, or consequential damages arising from your use of the app.</p>
-  </div>
-
-  <div class="section">
-    <h2>8. Changes to These Terms</h2>
-    <p>We may update these terms from time to time. Continued use of the app after changes are posted constitutes your acceptance of the revised terms.</p>
-  </div>
-
-  <div class="section">
-    <h2>9. Contact</h2>
-    <p>Questions about these terms? Reach us at <a href="mailto:support@dibs.app">support@dibs.app</a>.</p>
-  </div>
+  <nav class="toc" aria-label="Table of contents">
+    <p class="toc-label">Jump to a section</p>
+    <ol>
+      <li><a href="#acceptance">1. Acceptance of these terms</a></li>
+      <li><a href="#eligibility">2. Who can use Dibs</a></li>
+      <li><a href="#account">3. Your account &amp; household</a></li>
+      <li><a href="#conduct">4. Acceptable use</a></li>
+      <li><a href="#content">5. Your content &amp; our license to it</a></li>
+      <li><a href="#ai">6. AI-assisted features</a></li>
+      <li><a href="#subscriptions">7. Subscriptions &amp; payment</a></li>
+      <li><a href="#warranty">8. Disclaimer of warranties</a></li>
+      <li><a href="#liability">9. Limitation of liability</a></li>
+      <li><a href="#indemnity">10. Indemnification</a></li>
+      <li><a href="#ip">11. Our intellectual property</a></li>
+      <li><a href="#thirdparty">12. Third-party services</a></li>
+      <li><a href="#termination">13. Suspension &amp; termination</a></li>
+      <li><a href="#law">14. Governing law &amp; disputes</a></li>
+      <li><a href="#changes">15. Changes to these terms</a></li>
+      <li><a href="#contact">16. Contact us</a></li>
+    </ol>
+  </nav>
 </div>
 
-<footer class="site-footer">
-  &copy; 2026 Dibs. All rights reserved.
+<main class="legal-body">
+  <div class="wrap">
+
+    <section class="legal-section" id="acceptance">
+      <h2><span class="sec-num">01</span> Acceptance of these terms</h2>
+      <p>This is an agreement between you and Dibs Labs ("Dibs," "we," "us," or "our") governing your use of the Dibs iOS app — including the TestFlight beta — and the justcalldibs.com website (together, the "Service"). By creating an account or otherwise using the Service, you agree to these Terms of Service and to our <a href="privacy.html">Privacy Policy</a>, which is incorporated into this agreement by reference. If you don't agree, please don't use the Service.</p>
+      <p>If you're using Dibs on behalf of a household, you're responsible for making sure the other members understand and agree to these terms too, since their use of the Service is also governed by this agreement.</p>
+    </section>
+
+    <section class="legal-section" id="eligibility">
+      <h2><span class="sec-num">02</span> Who can use Dibs</h2>
+      <p>Creating a Dibs account requires signing in through Apple, Google, or Snapchat. We don't run an independent age gate beyond what those providers require of their own account holders. If you're under the age where you can agree to this kind of service on your own — that varies by country, roughly 13 to 16 — a parent or guardian should create or approve the account for you. See our Privacy Policy's <a href="privacy.html#children">Children's Privacy section</a> for more detail. Dibs is designed for households — couples, families, and roommates — and isn't directed at children as a standalone product.</p>
+    </section>
+
+    <section class="legal-section" id="account">
+      <h2><span class="sec-num">03</span> Your account &amp; household</h2>
+      <p>You're responsible for the activity that happens on your account. Keep your sign-in credentials with Apple, Google, or Snapchat secure — we don't have a separate Dibs password to protect, since we don't offer email/password sign-in today.</p>
+      <p>When you join a household, the other members can see your display name, avatar, chores, and message-board posts, and a household admin can see and manage household-wide settings, including removing members. Any member of a household — not just an admin — can also delete the household outright, as covered in Section 13. Only invite people to a household you actually want to share this information with.</p>
+      <p>You're responsible for what you and your household do with Dibs, including making sure any chores, notes, or messages you post don't violate Section 4 (Acceptable use) or anyone else's rights.</p>
+    </section>
+
+    <section class="legal-section" id="conduct">
+      <h2><span class="sec-num">04</span> Acceptable use</h2>
+      <p>Don't use Dibs to:</p>
+      <ul>
+        <li>Post anything unlawful, harassing, threatening, or that violates another person's privacy or rights — including another household member's.</li>
+        <li>Impersonate another person, or misrepresent your affiliation with a person or household.</li>
+        <li>Attempt to gain unauthorized access to another household's data, another user's account, or Dibs' systems (including by circumventing invite-code protections or rate limits).</li>
+        <li>Use automated means (bots, scrapers) to access the Service outside of Dibs' own app and published APIs.</li>
+        <li>Upload malicious code, or interfere with or disrupt the Service's normal operation for other users — for example, through excessive automated requests, exploiting bugs to affect other households, or denial-of-service-style behavior.</li>
+        <li>Use the AI features to generate content that's illegal, abusive, or designed to harass a household member.</li>
+        <li>Use the Service for any purpose that violates applicable law.</li>
+      </ul>
+      <p>We may investigate and take appropriate action against anyone who violates this section, including removing content, suspending or terminating accounts (Section 13), and reporting conduct to law enforcement where warranted.</p>
+    </section>
+
+    <section class="legal-section" id="content">
+      <h2><span class="sec-num">05</span> Your content &amp; our license to it</h2>
+      <p>"Your Content" means the messages, drawings, notes, display name, avatar, and anything else you individually create, upload, or post using the Service. <strong>You own Your Content.</strong> We're not claiming it as ours.</p>
+      <p>Chores are a little different: they're shared, jointly-editable household data by design — anyone in your household can create, edit, reassign, or claim a chore, and our systems don't track a single "author" for a chore the way they do for a message-board post. We don't claim ownership of your chore data either, but think of it as belonging to the household as a whole rather than to whoever happened to type it in.</p>
+      <p>By posting Your Content or creating chore data, you grant Dibs a worldwide, non-exclusive, royalty-free license to host, store, reproduce, and display it solely as needed to operate and provide the Service to you and your household — for example, showing your chore list to your household members, or generating a household activity notification. For content you personally control (like a message-board post), this license ends when you delete that content or your account — except that content which is shared household record by its nature keeps existing for the household after you're gone, the same way a household's chore history isn't tied to any one member remaining in it. Concretely: when you delete your account, a message-board post's text may remain visible to your former household, just no longer attributed to your name — see our Privacy Policy's <a href="privacy.html#retention">retention section</a> for the full detail on what's kept and what's removed.</p>
+      <p>We do not sell Your Content, and we do not use it to train third-party AI models on our behalf — see the Privacy Policy's <a href="privacy.html#ai-collect">Section 2.6</a> for exactly what's shared with our AI providers when you use an AI feature.</p>
+    </section>
+
+    <section class="legal-section" id="ai">
+      <h2><span class="sec-num">06</span> AI-assisted features</h2>
+      <p>Dibs offers optional AI features (chore breakdown, an AI daily planner, AI-generated starter chores, AI batch chore generation) that use third-party AI models to generate suggestions based on what you type and your household's chore data. <strong>These are suggestions, not guarantees.</strong> AI-generated output can be inaccurate, incomplete, or not what you expected — review it before relying on it, the same way you would with any automated suggestion. Nothing an AI feature generates is automatically applied to your household without a member choosing to accept it. AI-generated content and suggestions are part of the Service and are subject to the disclaimers in Section 8 and the liability limitations in Section 9, the same as any other part of Dibs.</p>
+    </section>
+
+    <section class="legal-section" id="subscriptions">
+      <h2><span class="sec-num">07</span> Subscriptions &amp; payment</h2>
+      <p>Dibs plans to offer an optional premium subscription ("Dibs Plus"). <strong>As of this policy's date, Dibs Plus is not yet available for purchase.</strong> When it launches, purchases, billing, auto-renewal, and cancellation will be handled entirely through Apple's App Store In-App Purchase system, governed by Apple's own Media Services Terms and your Apple ID account settings — not by Dibs directly. We'll update this section with the specific plans, pricing, and cancellation instructions before Dibs Plus goes live.</p>
+    </section>
+
+    <section class="legal-section" id="warranty">
+      <h2><span class="sec-num">08</span> Disclaimer of warranties</h2>
+      <p>The Service is provided "as is" and "as available," without warranties of any kind, whether express, implied, or statutory, including implied warranties of merchantability, fitness for a particular purpose, and non-infringement. We don't guarantee the Service will be uninterrupted, secure, or error-free, that defects will be corrected, or that the Service (including AI-generated suggestions) will meet your requirements or expectations.</p>
+      <h3>Beta terms</h3>
+      <p>While the Service is offered through TestFlight or otherwise designated as a beta, early-access, or pre-release version: it may contain bugs, may be unstable, and may change substantially or be discontinued at any time without notice; your data — including chore history, household configuration, and posted content — may be reset, lost, or made incompatible with a later release; and TestFlight builds expire and require installing the general App Store release once the beta ends. We'll try to give notice before a change that affects your data, but we can't guarantee continuity during the beta period.</p>
+    </section>
+
+    <section class="legal-section" id="liability">
+      <h2><span class="sec-num">09</span> Limitation of liability</h2>
+      <ul>
+        <li><strong>No liability for indirect damages.</strong> To the maximum extent the law allows, Dibs Labs isn't liable for indirect, incidental, special, consequential, or punitive damages — or for lost data, use, or goodwill — arising from your use of the Service, even if we've been warned those damages were possible.</li>
+        <li><strong>Liability cap.</strong> Our total liability to you for any claim is capped at whichever is greater: what you paid us in the past 12 months, or $50.</li>
+        <li><strong>Carve-out.</strong> This cap doesn't apply to damages caused by our own gross negligence or willful misconduct.</li>
+      </ul>
+      <p>Some jurisdictions don't allow the exclusion or limitation of certain damages, so some of the above limitations may not apply to you.</p>
+    </section>
+
+    <section class="legal-section" id="indemnity">
+      <h2><span class="sec-num">10</span> Indemnification</h2>
+      <p>If a claim arises from your use of the Service, Your Content, or your violation of these terms or the law, you agree to cover Dibs Labs' resulting damages, losses, and expenses (including reasonable legal fees) — except for the part caused by our own violation of these terms or the law.</p>
+    </section>
+
+    <section class="legal-section" id="ip">
+      <h2><span class="sec-num">11</span> Our intellectual property</h2>
+      <p>The Service — including the Dibs name and logo, and the app's source code and visual/interactive design, including our specific implementation of the chore-claiming "wheel" — is owned by Dibs Labs and protected by copyright, trademark, and other applicable intellectual property law. These terms don't grant you any right to use our trademarks, branding, or the Service's underlying code or design without our prior written permission, and don't grant you rights to copy our implementation. This section doesn't apply to Your Content (Section 5), which you own.</p>
+
+      <h3>Copyright complaints (DMCA)</h3>
+      <p>If you believe content on the Service infringes your copyright, send a notice meeting the requirements of 17 U.S.C. &sect; 512(c)(3) to <a href="mailto:support@justcalldibs.com">support@justcalldibs.com</a> with the subject line "DMCA Notice," and we'll respond in accordance with the Digital Millennium Copyright Act.</p>
+    </section>
+
+    <section class="legal-section" id="thirdparty">
+      <h2><span class="sec-num">12</span> Third-party services</h2>
+      <p>Dibs relies on third-party services to operate — sign-in providers (Apple, Google, Snapchat), infrastructure (Google/Firebase), and AI providers (Anthropic, OpenAI) among them; the full list is in our Privacy Policy's <a href="privacy.html#sharing">Section 4</a>. Your use of those providers' own sign-in flows or platforms (for example, signing in with your Apple ID) is also governed by their own terms, which we don't control.</p>
+
+      <h3>If you downloaded Dibs from the Apple App Store</h3>
+      <p>The following additional terms apply, and take precedence over any conflicting provision above with respect to Apple:</p>
+      <ul>
+        <li>This agreement is between you and Dibs Labs only, not Apple, and Apple is not responsible for the Service or its content.</li>
+        <li>Apple has no obligation to furnish any maintenance or support for the Service.</li>
+        <li>If the Service fails to conform to any applicable warranty, you may notify Apple, and Apple will refund the purchase price (if any) to you; to the maximum extent permitted by law, Apple has no other warranty obligation with respect to the Service.</li>
+        <li>Apple is not responsible for addressing any claims by you or a third party relating to the Service, including product-liability claims, claims that the Service fails to conform to legal or regulatory requirements, and claims arising under consumer-protection or similar law.</li>
+        <li>Apple is not responsible for the investigation, defense, settlement, or discharge of any third-party claim that the Service or your possession or use of it infringes that party's intellectual property rights.</li>
+        <li>You represent that you're not located in a country subject to a U.S. government embargo or designated as a "terrorist-supporting" country, and that you're not on any U.S. government list of prohibited or restricted parties.</li>
+        <li>You and Dibs Labs acknowledge that Apple and Apple's subsidiaries are third-party beneficiaries of this agreement, and that once you accept these terms, Apple has the right to enforce this agreement against you as a third-party beneficiary.</li>
+      </ul>
+    </section>
+
+    <section class="legal-section" id="termination">
+      <h2><span class="sec-num">13</span> Suspension &amp; termination</h2>
+      <p>You can stop using Dibs and delete your account at any time — see our <a href="data-deletion.html">Data Deletion page</a> for exactly how and what that removes. Note that any member of a household — not just an admin — can also delete the entire household, which (as described in our <a href="privacy.html#retention">Privacy Policy</a>) removes every member's account, not just the account of the person who deleted it.</p>
+      <p>We may suspend or terminate your access to the Service, with or without notice, if we reasonably believe you've violated Section 4 (Acceptable use), these terms, or applicable law, or if we discontinue the Service or a feature of it. If we terminate your access for cause, it ends immediately, and we handle your account data the same way we handle a self-initiated deletion (Section 5, and our <a href="privacy.html#retention">Privacy Policy</a>) — we're not required to keep it around for you afterward. Sections that by their nature should survive termination — including Sections 8, 9, 10, 11, 12, and 14 — will survive.</p>
+    </section>
+
+    <section class="legal-section" id="law">
+      <h2><span class="sec-num">14</span> Governing law &amp; disputes</h2>
+      <p>These terms are governed by the laws of India, without regard to its conflict-of-law principles. Subject to the informal-resolution step below, the courts located in Sambalpur, Odisha, India have jurisdiction over any dispute arising from these terms or the Service. We haven't added a mandatory-arbitration or class-action-waiver clause; if we do in the future, Section 15 explains how we'll handle it.</p>
+      <p>Before pursuing a formal claim, we'd appreciate the chance to resolve any dispute informally — contact us using Section 16 and we'll do our best to sort it out directly.</p>
+
+      <h3>Severability</h3>
+      <p>If any provision of these terms is found unenforceable, that provision will be limited or eliminated to the minimum extent necessary, and the rest of these terms will remain in full effect.</p>
+
+      <h3>Entire agreement</h3>
+      <p>These terms, together with our Privacy Policy, are the entire agreement between you and Dibs Labs about the Service, and supersede any prior agreements on this subject. If there's a direct conflict between these terms and the Privacy Policy, these terms control — except on questions of data handling specifically, where the Privacy Policy controls.</p>
+
+      <h3>No waiver</h3>
+      <p>Our failure to enforce any provision of these terms isn't a waiver of our right to enforce it later.</p>
+
+      <h3>Assignment</h3>
+      <p>You may not assign these terms without our consent. We may assign these terms in connection with a merger, acquisition, or sale of assets, or by operation of law.</p>
+    </section>
+
+    <section class="legal-section" id="changes">
+      <h2><span class="sec-num">15</span> Changes to these terms</h2>
+      <p>We may update these terms as Dibs changes — for example, when Dibs Plus launches and we can specify real pricing and cancellation terms. We'll update the "Last updated" date at the top of this page, and for material changes, we'll take reasonable steps to notify you in-app or by email before the change takes effect. For a change that adds a mandatory-arbitration or class-action-waiver provision specifically, we'll ask you to affirmatively accept the updated terms (for example, via an in-app confirmation) before it applies to you — continued use alone won't be enough for that kind of change. For other changes, continuing to use the Service after it takes effect means you accept the updated terms; if you don't agree with a change, please stop using the Service and delete your account.</p>
+    </section>
+
+    <section class="legal-section" id="contact">
+      <h2><span class="sec-num">16</span> Contact us</h2>
+      <p>Questions about these terms? We're a small team and read every message ourselves.</p>
+      <div class="contact-card">
+        <p><strong>Dibs Labs</strong></p>
+        <p>SJN-19, Sahajog Nagar, Budharaja, Sambalpur, Odisha 768004, India</p>
+        <p>Email: <a href="mailto:support@justcalldibs.com">support@justcalldibs.com</a></p>
+        <p>Web: <a href="https://justcalldibs.com">justcalldibs.com</a></p>
+      </div>
+      <p style="margin-top:20px;"><a class="back-to-top" href="#top">&uarr; Back to top</a></p>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <p class="fine"><a href="index.html">Home</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="data-deletion.html">Data Deletion</a> &middot; <a href="help.html">Help</a></p>
+  <p class="fine">&copy; 2026 Dibs Labs</p>
 </footer>
 
 </body>

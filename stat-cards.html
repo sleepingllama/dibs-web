@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stat Card Kit — Dibs</title>
+<meta name="description" content="Internal asset kit: downloadable stat cards for social sharing.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Sora:wght@300;400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0E0E1B;
+  --ink-card: #191930;
+  --cream: #F4EFE6;
+  --cream-dim: #B9B4AC;
+  --cream-faint: #7C7880;
+  --teal: #00D2C6;
+  --coral: #FF6B6B;
+  --gold: #D8B25C;
+  --line: rgba(244, 239, 230, 0.14);
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'Sora', system-ui, -apple-system, sans-serif;
+  --mono: 'Space Mono', ui-monospace, monospace;
+  --wordmark: 'Fredoka', var(--sans);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #050509;
+  color: var(--cream);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Kit chrome (not part of exported cards) --- */
+.kit-head {
+  padding: 40px 32px 24px;
+  max-width: 900px;
+}
+.kit-head a { color: var(--teal); text-decoration: none; }
+.kit-head h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 2.2rem;
+  margin: 16px 0 12px;
+}
+.kit-head p {
+  font-size: 15px;
+  color: var(--cream-dim);
+  font-weight: 300;
+  max-width: 68ch;
+  line-height: 1.6;
+}
+.kit-head code {
+  font-family: var(--mono);
+  background: var(--ink-card);
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+.kit-section-label {
+  padding: 32px 32px 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--cream-faint);
+  max-width: 900px;
+}
+
+.kit-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  padding: 24px 32px 64px;
+  align-items: flex-start;
+}
+.kit-item { display: flex; flex-direction: column; gap: 10px; }
+.kit-item .kit-caption {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--cream-faint);
+  max-width: 320px;
+}
+
+/* --- The card itself (this is what gets captured) --- */
+.stat-card {
+  position: relative;
+  background:
+    radial-gradient(120% 90% at 15% 0%, rgba(0, 210, 198, .16), transparent 55%),
+    radial-gradient(100% 90% at 100% 100%, rgba(255, 107, 107, .12), transparent 55%),
+    linear-gradient(160deg, #14142A, #0A0A14);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.stat-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg, transparent, transparent 60px,
+    rgba(244, 239, 230, .025) 60px, rgba(244, 239, 230, .025) 61px);
+  pointer-events: none;
+}
+.stat-card-wordmark {
+  position: relative; z-index: 2;
+  font-family: var(--wordmark);
+  font-weight: 700;
+  color: var(--cream);
+}
+.stat-card-wordmark span { color: var(--teal); }
+.stat-card-body { position: relative; z-index: 2; }
+.stat-card-val {
+  font-family: var(--serif);
+  font-weight: 400;
+  color: var(--cream);
+  line-height: .96;
+  letter-spacing: -0.01em;
+}
+.stat-card-val em { color: var(--coral); font-style: italic; }
+.stat-card-val .unit { font-size: .32em; color: var(--teal); font-style: italic; margin-left: 10px; }
+.stat-card-val--pair {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+.stat-card-val--pair .sep {
+  font-family: var(--mono);
+  font-style: normal;
+  color: var(--cream-faint);
+  text-transform: uppercase;
+}
+.stat-card--ig .stat-card-val--pair { font-size: 92px; gap: 18px; }
+.stat-card--ig .stat-card-val--pair .sep { font-size: 26px; }
+.stat-card--og .stat-card-val--pair { font-size: 64px; gap: 14px; }
+.stat-card--og .stat-card-val--pair .sep { font-size: 18px; }
+.stat-card-label {
+  font-weight: 300;
+  color: var(--cream-dim);
+}
+.stat-card-source {
+  position: relative; z-index: 2;
+  font-family: var(--mono);
+  text-transform: uppercase;
+  color: var(--cream-faint);
+}
+.stat-card-og-badge {
+  position: absolute;
+  top: 0; right: 0;
+  z-index: 3;
+  background: var(--teal);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: .06em;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-bottom-left-radius: 8px;
+}
+
+/* --- Instagram format: 1080x1350 --- */
+.stat-card--ig {
+  width: 1080px; height: 1350px;
+  padding: 88px 80px;
+}
+.stat-card--ig .stat-card-wordmark { font-size: 40px; }
+.stat-card--ig .stat-card-val { font-size: 148px; margin-bottom: 28px; }
+.stat-card--ig .stat-card-label { font-size: 34px; max-width: 21ch; line-height: 1.28; }
+.stat-card--ig .stat-card-source { font-size: 20px; letter-spacing: .1em; }
+
+/* --- Link-preview format: 1200x630 --- */
+.stat-card--og {
+  width: 1200px; height: 630px;
+  padding: 56px 64px;
+}
+.stat-card--og .stat-card-wordmark { font-size: 30px; }
+.stat-card--og .stat-card-val { font-size: 104px; margin-bottom: 16px; }
+.stat-card--og .stat-card-label { font-size: 26px; max-width: 22ch; line-height: 1.28; }
+.stat-card--og .stat-card-source { font-size: 15px; letter-spacing: .08em; }
+</style>
+</head>
+<body>
+
+<div class="kit-head">
+  <a href="index.html">&larr; Back to Dibs</a>
+  <h1>Stat Card Kit</h1>
+  <p>Internal asset page — not part of the public site (<code>noindex</code>). Ten cards, two formats each: <code>1080&times;1350</code> for Instagram/social, <code>1200&times;630</code> for link previews and OG images. To export: resize the browser viewport to at least 1080px wide, screenshot each <code>.stat-card</code> element at 100% zoom, crop to its exact box. Every stat is sourced &mdash; see <a href="research.html">the Mental Load Library</a> for full citations.</p>
+  <p style="margin-top:16px;">Four of the <code>1200&times;630</code> cards below are wired as <code>og:image</code> for the site (see B4) and are marked <b style="color:var(--teal)">OG TARGET</b> &mdash; export those first, into <code>images/og/</code> with the exact filename shown on the card.</p>
+</div>
+
+<p class="kit-section-label">Instagram / social &middot; 1080&times;1350</p>
+<div class="kit-gallery" id="igGallery"></div>
+
+<p class="kit-section-label">Link preview / OG &middot; 1200&times;630</p>
+<div class="kit-gallery" id="ogGallery"></div>
+
+<script>
+const CARDS = [
+  { type: 'pair', a: '41.1%', b: '9.6%', sep: 'vs', label: 'Employed women who think about household organization at work — 4x the rate of men.', source: 'arXiv, 2025', ogTarget: 'images/og/research-og.jpg' },
+  { type: 'pair', a: '72%', b: '18%', sep: 'vs', label: 'of women say they do most of the household tasks. Only this many partners agree.', source: 'Starling Bank / Mortar Research' },
+  { type: 'single', val: '75<span class="unit">min</span>', label: 'spent arguing about cleaning duties, every single month.', source: 'SuchScience, n=2,000', ogTarget: 'images/og/calculator-og.jpg' },
+  { type: 'single', val: 'Only <em>9%</em>', label: 'of partners consistently follow through on chores without a reminder.', source: 'SuchScience, n=2,000', ogTarget: 'images/og/index-og.jpg' },
+  { type: 'single', val: '8<em>&times;</em>', label: 'a month couples argue when one partner carries nearly everything.', source: 'Starling Bank / Mortar Research' },
+  { type: 'pair', a: '56%', b: '76%', sep: '&rarr;', label: 'Relationship satisfaction under 6 months together, vs. 10+ years. It’s learnable, not fixed.', source: 'SuchScience, n=2,000' },
+  { type: 'single', val: '708<em>M</em>', label: 'women worldwide are outside the paid workforce because of unpaid care work.', source: 'ILO' },
+  { type: 'single', val: '$10.8<em>T</em>', label: 'the estimated annual value of unpaid care work, worldwide.', source: 'UN Women, 2024' },
+  { type: 'single', val: '36%', label: 'of couples disagree on who’s actually the household’s primary organizer.', source: 'arXiv, 2025', ogTarget: 'images/og/quiz-og.jpg' },
+  { type: 'single', val: 'Top <em>5</em>', label: 'Chores are a top-5 reason couples argue — right behind money.', source: 'Lifeway Research, 2024' },
+];
+
+function valHTML(c) {
+  if (c.type === 'pair') {
+    return `<div class="stat-card-val stat-card-val--pair"><span>${c.a}</span><span class="sep">${c.sep}</span><em>${c.b}</em></div>`;
+  }
+  return `<div class="stat-card-val">${c.val}</div>`;
+}
+
+function cardHTML(c, variant) {
+  const badge = (variant === 'og' && c.ogTarget)
+    ? `<div class="stat-card-og-badge">OG TARGET &middot; ${c.ogTarget}</div>` : '';
+  return `<div class="stat-card stat-card--${variant}">
+    ${badge}
+    <div class="stat-card-wordmark">dibs<span>.</span></div>
+    <div class="stat-card-body">
+      ${valHTML(c)}
+      <div class="stat-card-label">${c.label}</div>
+    </div>
+    <div class="stat-card-source">Source: ${c.source} &middot; justcalldibs.com</div>
+  </div>`;
+}
+
+function renderGallery(id, variant) {
+  const el = document.getElementById(id);
+  CARDS.forEach((c, i) => {
+    const wrap = document.createElement('div');
+    wrap.className = 'kit-item';
+    wrap.innerHTML = cardHTML(c, variant) + `<span class="kit-caption">${(i+1).toString().padStart(2,'0')} &mdash; ${c.source}</span>`;
+    el.appendChild(wrap);
+  });
+}
+renderGallery('igGallery', 'ig');
+renderGallery('ogGallery', 'og');
+</script>
+</body>
+</html>

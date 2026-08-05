@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer data-domain="justcalldibs.com" src="https://plausible.io/js/script.outbound-links.tagged-events.js"></script>
+<title>The Argument Hours Calculator — Dibs</title>
+<meta name="description" content="How many hours of your life have you spent arguing about the sink? A real, cited number — based on research into how much time couples spend arguing about cleaning.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://justcalldibs.com/argument-calc.html">
+<meta property="og:title" content="Couples spend 75 minutes a month arguing about cleaning. What's your number?">
+<meta property="og:description" content="How many hours of your life have you spent arguing about the sink? A real, cited number based on how long you've lived together.">
+<meta property="og:image" content="https://justcalldibs.com/images/og/calculator-og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Couples spend 75 minutes a month arguing about cleaning. What's your number?">
+<meta name="twitter:description" content="How many hours of your life have you spent arguing about the sink? A real, cited number based on how long you've lived together.">
+<meta name="twitter:image" content="https://justcalldibs.com/images/og/calculator-og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Sora:wght@300;400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<style>
+body {
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--sans);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px var(--pad);
+}
+.wordmark {
+  font-family: var(--wordmark);
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+  text-decoration: none;
+}
+.wordmark span { color: var(--teal); }
+.nav-back {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  text-decoration: none;
+  transition: color .3s;
+}
+.nav-back:hover { color: var(--teal); }
+
+.wrap { max-width: 720px; margin: 0 auto; padding: 0 var(--pad); }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--teal);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  justify-content: center;
+}
+.eyebrow::before {
+  content: '';
+  width: 40px; height: 1px;
+  background: var(--teal);
+  display: inline-block;
+}
+
+
+/* --- Photo-backed hero (images/calc-hero.jpg) --- */
+main {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(72px, 13vh, 140px) 0 clamp(64px, 12vh, 140px);
+  text-align: center;
+}
+.hero-bg { position: absolute; inset: 0; z-index: 0; }
+.hero-bg .mj { position: absolute; inset: 0; }
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(14,14,27,.78) 0%, rgba(14,14,27,.5) 45%, rgba(14,14,27,.88) 100%);
+}
+main > .wrap { position: relative; z-index: 2; }
+
+/* --- Closing CTA, photo-backed (images/cta.jpg, shared across secondary pages) ---
+   min-height: 100vh so the photo fills the whole viewport when scrolled to, rather
+   than showing a sliver of the section above it. */
+.hub-cta {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0;
+  padding-bottom: clamp(56px, 9vh, 96px);
+  text-align: center;
+}
+.cta-bg { position: absolute; inset: 0; z-index: 0; }
+.cta-bg .mj { position: absolute; inset: 0; }
+.cta-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  z-index: 1;
+  background: radial-gradient(90% 90% at 50% 50%, rgba(14,14,27,.62), rgba(14,14,27,.93));
+}
+.hub-cta > .wrap { position: relative; z-index: 2; margin-top: -40px; }
+.hub-cta h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.1;
+  max-width: 18ch;
+  margin: 0 auto 20px;
+}
+.hub-cta h2 em { color: var(--teal); font-style: italic; }
+.hub-cta p {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--cream-dim);
+  max-width: 46ch;
+  margin: 0 auto 32px;
+}
+
+h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+  margin: 28px 0 18px;
+}
+h1 em { color: var(--coral); font-style: italic; }
+
+.lede {
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--cream-dim);
+  max-width: 52ch;
+  margin: 0 auto;
+}
+.lede sup { color: var(--teal); }
+
+/* No card background — content sits directly on the hero photo, same as quiz.html's
+   screens, instead of floating in an opaque box. */
+.calc-card {
+  margin: clamp(48px, 8vh, 72px) 0 0;
+  padding: clamp(32px, 6vw, 56px) 0 0;
+  text-align: center;
+}
+
+.slider-label {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--cream-faint);
+  margin-bottom: 18px;
+}
+.years-readout {
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  color: var(--teal);
+  line-height: 1;
+  margin-bottom: 22px;
+}
+.years-readout .unit { font-size: .38em; color: var(--cream-dim); font-style: italic; margin-left: 6px; }
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  max-width: 480px;
+  height: 4px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--teal), var(--coral));
+  outline: none;
+  margin: 0 auto;
+  display: block;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 4px solid var(--ink);
+  box-shadow: 0 4px 16px rgba(0,0,0,.4);
+  cursor: pointer;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 4px solid var(--ink);
+  box-shadow: 0 4px 16px rgba(0,0,0,.4);
+  cursor: pointer;
+  border: none;
+}
+.slider-ends {
+  display: flex;
+  justify-content: space-between;
+  max-width: 480px;
+  margin: 10px auto 0;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .08em;
+  color: var(--cream-faint);
+}
+
+.result {
+  margin-top: clamp(40px, 6vh, 60px);
+  padding-top: clamp(32px, 5vh, 48px);
+  border-top: 1px dashed var(--line);
+}
+.result-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--cream-faint);
+  margin-bottom: 12px;
+}
+.result-hours {
+  font-family: var(--serif);
+  font-size: clamp(3.4rem, 11vw, 6.4rem);
+  line-height: 1;
+  color: var(--coral);
+}
+.result-hours .unit { font-size: .3em; color: var(--cream-dim); font-style: italic; margin-left: 8px; }
+.result-equiv {
+  margin-top: 18px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.2rem, 2.6vw, 1.6rem);
+  color: var(--cream);
+  max-width: 44ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.result-equiv b { color: var(--teal); font-style: normal; }
+
+.hope {
+  margin-top: clamp(36px, 6vh, 52px);
+  background: rgba(0, 210, 198, .07);
+  border: 1px solid rgba(0, 210, 198, .25);
+  border-radius: 16px;
+  padding: 24px 28px;
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--cream-dim);
+  max-width: 52ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hope b { color: var(--teal); font-weight: 600; }
+.hope .arc { font-family: var(--mono); color: var(--cream); }
+
+.actions {
+  margin-top: clamp(36px, 6vh, 52px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: .01em;
+  text-decoration: none;
+  border: none;
+  border-radius: 100px;
+  padding: 16px 32px;
+  cursor: pointer;
+  transition: transform .35s var(--ease-out), box-shadow .35s, background .3s, color .3s;
+}
+.btn-teal { background: var(--teal); color: var(--ink); }
+.btn-teal:hover { box-shadow: 0 12px 40px rgba(0, 210, 198, .35); }
+.btn-ghost { background: transparent; color: var(--cream); border: 1px solid var(--line); }
+.btn-ghost:hover { border-color: var(--cream-dim); }
+.btn-ghost.copied { color: var(--teal); border-color: var(--teal); }
+
+.source-note {
+  margin-top: 44px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .06em;
+  color: var(--cream-faint);
+  max-width: 52ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.source-note a { color: var(--teal); text-decoration: none; border-bottom: 1px solid rgba(0,210,198,.4); }
+.source-note a:hover { border-color: var(--teal); }
+
+footer {
+  border-top: 1px solid var(--line-soft);
+  padding: 32px var(--pad);
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--cream-faint);
+}
+footer a { color: var(--cream-dim); text-decoration: none; }
+footer a:hover { color: var(--teal); }
+
+@media (max-width: 600px) {
+  nav { padding: 18px var(--pad); }
+  .calc-card { border-radius: 18px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="wordmark" href="index.html">dibs<span>.</span></a>
+  <a class="nav-back" href="index.html">&larr; Back to Dibs</a>
+</nav>
+
+<main>
+  <div class="hero-bg">
+    <figure class="mj">
+      <img src="images/calc-hero.jpg" alt="A kitchen sink piled with dirty dishes at night, single dripping tap">
+    </figure>
+  </div>
+  <div class="wrap">
+    <p class="eyebrow">A dibs field study</p>
+    <h1>How many hours have you spent <em>arguing about the sink?</em></h1>
+    <p class="lede">Couples spend real, measurable time arguing about cleaning<sup>1</sup>, not big blowups, just the low-grade friction of who-does-what. Drag the slider to your household and find out your number.</p>
+
+    <div class="calc-card">
+      <p class="slider-label">Years you&rsquo;ve lived together</p>
+      <div class="years-readout"><span id="yearsOut">5</span><span class="unit" id="yearsUnit">years</span></div>
+      <input type="range" id="years" min="0" max="25" step="0.5" value="5" aria-label="Years lived together">
+      <div class="slider-ends"><span>JUST MOVED IN</span><span>25 YEARS</span></div>
+
+      <div class="result">
+        <p class="result-eyebrow">Time spent arguing about cleaning, total</p>
+        <div class="result-hours"><span id="hoursOut">75</span><span class="unit">hours</span></div>
+        <p class="result-equiv" id="equivOut">That&rsquo;s roughly <b>a long weekend</b>, spent arguing about the sink.</p>
+      </div>
+
+      <div class="hope">
+        The good news? This isn&rsquo;t permanent. Couples together <b>10+ years</b> report <span class="arc">76%</span> relationship satisfaction, versus <span class="arc">56%</span> under 6 months<sup>2</sup>. It gets better with the right system, not just more time.
+      </div>
+
+      <div class="actions">
+        <!-- TODO: swap to App Store URL at launch -->
+        <a class="btn btn-teal plausible-event-name=CTA+Click plausible-event-position=calc" href="index.html#get">Get Dibs — stop the clock</a>
+        <button class="btn btn-ghost" id="shareBtn" type="button">Share your number</button>
+      </div>
+    </div>
+
+    <p class="source-note">Based on a survey of 2,000 people finding 75 minutes/month spent specifically arguing about cleaning duties.<sup>1</sup> Math: 75 min &times; months together. Full sources in <a href="research.html">the Mental Load Library</a>. Wondering if you and your household even agree on who's doing what? <a href="quiz.html">Take the Perception Gap Quiz</a>.</p>
+  </div>
+</main>
+
+<section class="hub-cta">
+  <div class="cta-bg">
+    <figure class="mj">
+      <img src="images/cta.jpg" alt="A living room at dusk, lamps lit, two mugs on a table in the foreground">
+    </figure>
+  </div>
+  <div class="wrap">
+    <h2>Stop the clock. <em>Start the wheel.</em></h2>
+    <p>Dibs turns who-does-what into who-called-it: the whole household, visible on one wheel, so nobody has to keep score from memory.</p>
+    <div class="actions">
+      <!-- TODO: swap to App Store URL at launch -->
+      <a class="btn btn-teal plausible-event-name=CTA+Click plausible-event-position=calc" href="index.html#get">Get Dibs for iPhone</a>
+      <a class="btn btn-ghost" href="research.html">See the research</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="index.html">Home</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="data-deletion.html">Data Deletion</a> &middot; <a href="help.html">Help</a> &middot; &copy; 2026 Dibs Labs
+</footer>
+
+<script>
+  document.querySelectorAll('.mj img').forEach(img => {
+    img.addEventListener('error', () => img.classList.add('missing'));
+    if (img.complete && img.naturalWidth === 0) img.classList.add('missing');
+  });
+</script>
+
+<script>
+(function () {
+  const slider = document.getElementById('years');
+  const yearsOut = document.getElementById('yearsOut');
+  const yearsUnit = document.getElementById('yearsUnit');
+  const hoursOut = document.getElementById('hoursOut');
+  const equivOut = document.getElementById('equivOut');
+  const shareBtn = document.getElementById('shareBtn');
+
+  const MIN_PER_MONTH = 75;
+
+  const equivalents = [
+    { min: 0,   label: 'a couple of sitcom seasons' },
+    { min: 20,  label: 'a full weekend, gone' },
+    { min: 40,  label: 'a long weekend trip' },
+    { min: 75,  label: 'a full work week' },
+    { min: 150, label: 'your entire honeymoon' },
+    { min: 300, label: 'a month of work weeks' },
+    { min: 600, label: 'half a year of full-time work' },
+    { min: 1200, label: 'more than a full year, awake, on the clock' }
+  ];
+
+  function pickEquivalent(hours) {
+    let match = equivalents[0];
+    for (const e of equivalents) { if (hours >= e.min) match = e; }
+    return match.label;
+  }
+
+  function formatYears(y) {
+    if (y === 0) return 'Just moved in';
+    if (y < 1) return Math.round(y * 12) + ' months';
+    if (Number.isInteger(y)) return y + (y === 1 ? ' year' : ' years');
+    return y + ' years';
+  }
+
+  function render() {
+    const years = parseFloat(slider.value);
+    const months = years * 12;
+    const hours = Math.round((months * MIN_PER_MONTH) / 60);
+    yearsOut.textContent = years === 0 ? '0' : years;
+    yearsUnit.textContent = years === 0 ? 'just moved in' : (years === 1 ? 'year' : 'years');
+    hoursOut.textContent = hours.toLocaleString();
+    equivOut.innerHTML = hours < 5
+      ? 'You&rsquo;re just getting started, check back in a few months.'
+      : `That&rsquo;s roughly <b>${pickEquivalent(hours)}</b>, spent arguing about the sink.`;
+  }
+
+  let calcComplete = false;
+  slider.addEventListener('input', () => {
+    render();
+    if (!calcComplete) { calcComplete = true; window.plausible && plausible('Calc Complete'); }
+  });
+  render();
+
+  shareBtn.addEventListener('click', async () => {
+    const hours = hoursOut.textContent;
+    const text = `We've spent ${hours} hours of our life arguing about the sink. lol this is us. — via Dibs`;
+    const url = window.location.href;
+    if (navigator.share) {
+      try { await navigator.share({ text, url }); return; } catch (e) { /* user cancelled */ }
+    }
+    try {
+      await navigator.clipboard.writeText(text + ' ' + url);
+      shareBtn.textContent = 'Copied to clipboard';
+      shareBtn.classList.add('copied');
+      setTimeout(() => { shareBtn.textContent = 'Share your number'; shareBtn.classList.remove('copied'); }, 2200);
+    } catch (e) { /* clipboard unavailable */ }
+  });
+})();
+</script>
+</body>
+</html>

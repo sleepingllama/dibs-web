@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer data-domain="justcalldibs.com" src="https://plausible.io/js/script.outbound-links.tagged-events.js"></script>
+<title>About — Dibs</title>
+<meta name="description" content="Dibs was built by two people tired of keeping score in their heads. Meet the co-founders and the Tuesday that started it all.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://justcalldibs.com/about.html">
+<meta property="og:title" content="We built Dibs because we were tired of asking twice.">
+<meta property="og:description" content="Dibs was built by two people tired of keeping score in their heads. Meet the co-founders and the Tuesday that started it all.">
+<meta property="og:image" content="https://justcalldibs.com/images/og/index-og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="We built Dibs because we were tired of asking twice.">
+<meta name="twitter:description" content="Dibs was built by two people tired of keeping score in their heads. Meet the co-founders and the Tuesday that started it all.">
+<meta name="twitter:image" content="https://justcalldibs.com/images/og/index-og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Sora:wght@300;400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<style>
+body {
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--sans);
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+::selection { background: var(--teal); color: var(--ink); }
+
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px var(--pad);
+}
+.wordmark {
+  font-family: var(--wordmark);
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+  text-decoration: none;
+}
+.wordmark span { color: var(--teal); }
+.nav-back {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  text-decoration: none;
+  transition: color .3s;
+}
+.nav-back:hover { color: var(--teal); }
+
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 var(--pad); }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--teal);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.eyebrow::before {
+  content: '';
+  width: 40px; height: 1px;
+  background: var(--teal);
+  display: inline-block;
+}
+
+/* --- Photo-backed hero (images/about-hero.jpg). Base .mj pattern is in
+   shared.css. --- */
+.hub-hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(88px, 15vh, 160px) 0 clamp(48px, 7vh, 72px);
+}
+.hero-bg { position: absolute; inset: 0; z-index: 0; }
+.hero-bg .mj { position: absolute; inset: 0; }
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(14,14,27,.72) 0%, rgba(14,14,27,.4) 45%, rgba(14,14,27,.85) 100%);
+}
+.hub-hero > .wrap { position: relative; z-index: 2; }
+.hub-hero h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 6vw, 4.4rem);
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+  margin: 24px 0 24px;
+  max-width: 16ch;
+}
+.hub-hero h1 em { color: var(--teal); font-style: italic; }
+.hub-lede {
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--cream-dim);
+  max-width: 58ch;
+}
+.hub-lede strong { color: var(--cream); font-weight: 600; }
+
+/* --- Photo-backed closing CTA (images/cta.jpg, shared across secondary pages) ---
+   min-height: 100vh so the photo fills the whole viewport when scrolled to, rather
+   than showing a sliver of the section above it. */
+.hub-cta {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cta-bg { position: absolute; inset: 0; z-index: 0; }
+.cta-bg .mj { position: absolute; inset: 0; }
+.cta-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  z-index: 1;
+  background: radial-gradient(90% 90% at 50% 50%, rgba(14,14,27,.62), rgba(14,14,27,.93));
+}
+.hub-cta > .wrap { position: relative; z-index: 2; margin-top: -40px; }
+
+.topic {
+  padding: clamp(48px, 8vh, 88px) 0;
+  border-top: 1px solid var(--line-soft);
+  scroll-margin-top: 24px;
+}
+.topic-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--cream-faint);
+  margin-bottom: 14px;
+}
+.topic h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 4vw, 2.7rem);
+  line-height: 1.14;
+  letter-spacing: -0.01em;
+  max-width: 22ch;
+  margin-bottom: 24px;
+}
+.topic h2 em { color: var(--coral); font-style: italic; }
+.topic p {
+  font-size: 16.5px;
+  font-weight: 300;
+  color: var(--cream-dim);
+  max-width: 64ch;
+}
+.topic p + p { margin-top: 18px; }
+.topic p strong { color: var(--cream); font-weight: 600; }
+
+/* --- Founder cards --- */
+.founders-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-top: 8px;
+}
+@media (max-width: 640px) {
+  .founders-grid { grid-template-columns: 1fr; max-width: 380px; }
+}
+.founder-card {
+  background: var(--ink-card);
+  border: 1px solid var(--line-soft);
+  border-radius: 20px;
+  overflow: hidden;
+}
+/* Real headshots go here (images/subir.jpg, images/alok.jpg). Unlike the .mj
+   Midjourney placeholders elsewhere on the site, these are real photos of real
+   people — no AI stylization. The filter below applies a warm duotone grade to
+   tie the likeness into the site's palette without altering the actual face. */
+.founder-photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: linear-gradient(160deg, #1B1B33, #101020);
+}
+.founder-photo img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: sepia(.22) saturate(1.2) hue-rotate(-8deg) contrast(1.04) brightness(.9);
+}
+.founder-photo img.missing { display: none; }
+.founder-photo-placeholder {
+  position: absolute; inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  padding: 0 24px;
+}
+.founder-photo-placeholder .initials {
+  font-family: var(--serif);
+  font-size: 56px;
+  color: var(--teal);
+  opacity: .55;
+}
+.founder-photo-placeholder .hint {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--cream-faint);
+  line-height: 1.5;
+}
+.founder-body { padding: 22px 24px 26px; }
+.founder-name {
+  font-family: var(--serif);
+  font-size: 21px;
+  color: var(--cream);
+}
+.founder-role {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin: 6px 0 14px;
+}
+.founder-bio {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--cream-dim);
+  line-height: 1.6;
+}
+
+.hub-cta {
+  padding-top: 0;
+  padding-bottom: clamp(56px, 9vh, 96px);
+  text-align: center;
+}
+.hub-cta h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.1;
+  max-width: 18ch;
+  margin: 0 auto 20px;
+}
+.hub-cta h2 em { color: var(--teal); font-style: italic; }
+.hub-cta p {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--cream-dim);
+  max-width: 46ch;
+  margin: 0 auto 32px;
+}
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: .01em;
+  text-decoration: none;
+  border: none;
+  border-radius: 100px;
+  padding: 16px 32px;
+  transition: transform .35s var(--ease-out), box-shadow .35s, background .3s, color .3s;
+}
+.btn-teal { background: var(--teal); color: var(--ink); }
+.btn-teal:hover { box-shadow: 0 12px 40px rgba(0, 210, 198, .35); }
+.btn-ghost { background: transparent; color: var(--cream); border: 1px solid var(--line); }
+.btn-ghost:hover { border-color: var(--cream-dim); }
+
+footer {
+  border-top: 1px solid var(--line-soft);
+  padding: 32px var(--pad);
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--cream-faint);
+}
+footer a { color: var(--cream-dim); text-decoration: none; }
+footer a:hover { color: var(--teal); }
+footer .fine + .fine { margin-top: 6px; }
+
+@media (max-width: 600px) {
+  nav { padding: 18px var(--pad); }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="wordmark" href="index.html">dibs<span>.</span></a>
+  <a class="nav-back" href="index.html">&larr; Back to Dibs</a>
+</nav>
+
+<header class="hub-hero">
+  <div class="hero-bg">
+    <figure class="mj">
+      <img src="images/about-hero.jpg" alt="An open dishwasher half-loaded with mismatched dishes at night">
+    </figure>
+  </div>
+  <div class="wrap">
+    <p class="eyebrow">Who's behind this</p>
+    <h1>We built this because we were <em>tired of asking twice.</em></h1>
+    <p class="hub-lede">Dibs is made by two people who each kept having the same kind of argument about chores at home, the quiet kind that doesn't even look like a fight until you're in it. <strong>Here's the Tuesday that started it, and who's actually building the fix.</strong></p>
+  </div>
+</header>
+
+<section class="topic" id="story">
+  <div class="wrap">
+    <p class="topic-num">The origin story</p>
+    <h2>Two separate arguments about <em>the dishwasher.</em></h2>
+    <p>Not big ones, the kind that happens on a random Tuesday, dissolves in twenty minutes, and somehow still leaves a residue. Subir had one at home with his partner. Around the same time, Alok had one at home with his. Different households, same fight: one person had loaded it, the other hadn't noticed anyone had. Nobody had actually done anything wrong, and somehow both people in each house felt like they had.</p>
+    <p>When they compared notes, that's the pattern they kept finding: chores rarely get missed. They get <strong>invisible.</strong> Someone remembers the trash goes out Thursday. Someone else remembers to buy bags before they run out. Neither of those things ever lands on a list the other person can see, so the one doing the remembering starts to feel like the only one doing anything, and the one who didn't know has no idea there was anything to know.</p>
+    <p>They didn't want a chore chart. Chore charts assume the fight is about the chores, and it almost never is. It's about whether the work is visible to both people, not just the one carrying it.</p>
+    <p>So they built a wheel instead of a list. Every task, claimed out loud, sitting where the whole household can see it. No more "I didn't know that was a thing." No more keeping score in your head. Just: <strong>you called it, it's yours, everyone can see whose turn it actually is.</strong></p>
+    <p>Dibs started as two people fixing their own Tuesdays. Turns out a lot of households have the same one.</p>
+  </div>
+</section>
+
+<section class="topic" id="founders">
+  <div class="wrap">
+    <p class="topic-num">The team</p>
+    <h2>Two co-founders, <em>matching dishwasher grudges.</em></h2>
+    <div class="founders-grid">
+      <div class="founder-card">
+        <figure class="founder-photo">
+          <div class="founder-photo-placeholder">
+            <span class="initials">SP</span>
+            <span class="hint">Headshot goes here &mdash; drop file at<br>images/subir.jpg</span>
+          </div>
+          <img src="images/subir.jpg" alt="Subir Padhee, Co-Founder of Dibs">
+        </figure>
+        <div class="founder-body">
+          <p class="founder-name">Subir Padhee</p>
+          <p class="founder-role">Co-Founder</p>
+          <p class="founder-bio">Built the first version of Dibs after one too many rounds of "wait, you didn't know that was Thursday's job?" Been obsessed with making invisible work visible ever since.</p>
+        </div>
+      </div>
+      <div class="founder-card">
+        <figure class="founder-photo">
+          <div class="founder-photo-placeholder">
+            <span class="initials">AV</span>
+            <span class="hint">Headshot goes here &mdash; drop file at<br>images/alok.jpg</span>
+          </div>
+          <img src="images/alok.jpg" alt="Alok Vij, Co-Founder of Dibs">
+        </figure>
+        <div class="founder-body">
+          <p class="founder-name">Alok Vij</p>
+          <p class="founder-role">Co-Founder</p>
+          <p class="founder-bio">Spent years watching smart, considerate couples still end up keeping score in their heads. Wanted a way to get it out of their heads and onto something everyone could actually see.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hub-cta">
+  <div class="cta-bg">
+    <figure class="mj">
+      <img src="images/cta.jpg" alt="A living room at dusk, lamps lit, two mugs on a table in the foreground">
+    </figure>
+  </div>
+  <div class="wrap">
+    <h2>Ready to stop <em>keeping score?</em></h2>
+    <p>Dibs turns who-does-what into who-called-it — the whole household, visible on one wheel, so nobody has to keep track from memory.</p>
+    <div class="actions">
+      <a class="btn btn-teal" href="index.html#get">Get Dibs for iPhone</a>
+      <a class="btn btn-ghost" href="mailto:support@justcalldibs.com">Say hello</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="fine"><a href="index.html">Home</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="data-deletion.html">Data Deletion</a> &middot; <a href="help.html">Help</a></p>
+  <p class="fine">&copy; 2026 Dibs Labs</p>
+</footer>
+
+<script>
+  document.querySelectorAll('.founder-photo img, .mj img').forEach(img => {
+    img.addEventListener('error', () => img.classList.add('missing'));
+    if (img.complete && img.naturalWidth === 0) img.classList.add('missing');
+  });
+</script>
+
+</body>
+</html>
