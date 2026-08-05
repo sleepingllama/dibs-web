@@ -1,3 +1,8 @@
 title: Dibs
 description: Household chore management
 permalink: pretty
+
+# Internal-only tooling pages: excluded from the built site (404 on the
+# live domain) but stay in the git repo for local use.
+exclude:
+  - stat-cards.html

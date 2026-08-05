@@ -16,6 +16,14 @@
 <meta name="twitter:description" content="36% of couples disagree on who's actually the household's primary organizer.">
 <meta name="twitter:image" content="https://justcalldibs.com/images/stat-card-09-og.jpg">
 <meta name="robots" content="index, follow">
+<script>
+  // Crawlers reading OG/Twitter meta tags don't execute JS, so link
+  // unfurls still show this stat's card. Real visitors land on the
+  // homepage instead of a standalone mini-page.
+  if (!navigator.userAgent.match(/bot|crawl|spider|facebookexternalhit|Twitterbot|Slackbot|WhatsApp|LinkedInBot|Discordbot|TelegramBot/i)) {
+    window.location.replace('../index.html');
+  }
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Sora:wght@300;400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
